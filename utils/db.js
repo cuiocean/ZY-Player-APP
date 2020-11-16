@@ -116,7 +116,11 @@ const db = {
         return { flag: false, data: null, msg: '清空数据库失败' }
       }
     }
-  }
+  },
+  // 初始化数据库
+  async initSite () {},
+  // 重置数据库
+  async resetSite () {}
 }
 
 export default db
