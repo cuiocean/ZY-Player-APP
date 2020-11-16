@@ -60,8 +60,8 @@
       },
       {
         "pagePath": "pages/me/me",
-        "iconPath": "static/images/me1.png",
-        "selectedIconPath": "static/images/me2.png",
+        "iconPath": "static/images/me2.png",
+        "selectedIconPath": "static/images/me1.png",
         "text": "我"
       }
     ]
