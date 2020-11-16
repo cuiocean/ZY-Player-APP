@@ -33,10 +33,12 @@
 			<u-loadmore bg-color="#f8f8f8" :status="loadStatus" @loadmore="addRandomData"></u-loadmore>
 		</view>
 		<u-back-top :scroll-top="scrollTop" icon="search"></u-back-top>
+		<u-top-tips ref="uTips"></u-top-tips>
 	</view>
 </template>
 
 <script>
+	import db from '../../utils/storage'
 	export default {
 		data() {
 			return {
@@ -105,8 +107,24 @@
 			};
 		},
 		methods: {
-			searchEvent () {
-				console.log(this.search, 'search');
+			async searchEvent () {
+				// const lala = await db.siteGetAll()
+				// console.log(this.search, 'search');
+				// const doc = {
+				// 	id: 2,
+				// 	key: 'mahuazy',
+				// 	name: '麻花资源',
+				// 	api: 'https://www.mhapi123.com/inc/api.php',
+				// 	isActive: true
+				// }
+				const arr = ['lala', 'gaga', 'haha', 'papa']
+				const lala = await db.siteKeyAdd(arr)
+				this.$refs.uTips.show({
+					title: lala,
+					type: 'success',
+					duration: '2000'
+				})
+				console.log(lala)
 			},
 			searchClearEvent () {
 				console.log('search clear event');

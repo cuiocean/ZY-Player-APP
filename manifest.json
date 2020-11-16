@@ -11,7 +11,7 @@
         "nvueCompiler" : "uni-app",
         "compilerVersion" : 3,
         "splashscreen" : {
-            "alwaysShowBeforeRender" : true,
+            "alwaysShowBeforeRender" : false,
             "waiting" : true,
             "autoclose" : true,
             "delay" : 0
@@ -71,8 +71,7 @@
                     }
                 }
             }
-        },
-        "renderer" : "native"
+        }
     },
     /* 快应用特有相关 */
     "quickapp" : {},
