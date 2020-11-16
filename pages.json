@@ -2,42 +2,68 @@
   "easycom": {
     "^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
   },
-	"pages": [
-		{
-			"path": "pages/film/film",
-			"style": {
-				"navigationBarTitleText": "首页"
-			}
-		},
+  "pages": [
     {
-    	"path": "pages/star/star",
-    	"style": {
-    		"navigationBarTitleText": "收藏"
-    	}
+      "path": "pages/film/film",
+      "style": {
+        "navigationBarTitleText": "首页"
+      }
     },
     {
-    	"path": "pages/me/me",
-    	"style": {
-    		"navigationBarTitleText": "我"
-    	}
+      "path": "pages/star/star",
+      "style": {
+        "navigationBarTitleText": "收藏"
+      }
     },
     {
-    	"path": "pages/detail/detail",
-    	"style": {
-    		"navigationStyle": "custom"
-    	}
+      "path": "pages/me/me",
+      "style": {
+        "navigationBarTitleText": "我"
+      }
     },
     {
-    	"path": "pages/play/play",
-    	"style": {
-    		"navigationBarTitleText": "播放"
-    	}
+      "path": "pages/detail/detail",
+      "style": {
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/play/play",
+      "style": {
+        "navigationBarTitleText": "播放"
+      }
     }
-	],
-	"globalStyle": {
-		"navigationBarTextStyle": "black",
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
     "navigationBarTitleText": "ZY Player",
     "navigationBarBackgroundColor": "#FFFFFF",
     "backgroundColor": "#FFFFFF"
-	}
+  },
+  "tabBar": {
+    "color": "#909399",
+    "selectedColor": "#303133",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/film/film",
+        "iconPath": "static/images/home1.png",
+        "selectedIconPath": "static/images/home2.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/star/star",
+        "iconPath": "static/images/star1.png",
+        "selectedIconPath": "static/images/star2.png",
+        "text": "收藏"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "iconPath": "static/images/me1.png",
+        "selectedIconPath": "static/images/me2.png",
+        "text": "我"
+      }
+    ]
+  }
 }

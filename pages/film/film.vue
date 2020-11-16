@@ -109,6 +109,7 @@
 		methods: {
 			async searchEvent () {
 				// const lala = await db.siteGetAll()
+				// console.log(lala, 'lala')
 				// console.log(this.search, 'search');
 				// const doc = {
 				// 	id: 2,
@@ -124,7 +125,12 @@
 					type: 'success',
 					duration: '2000'
 				})
-				console.log(lala)
+				// console.log(lala)
+				// this.$refs.uTips.show({
+				// 	title: 'lala',
+				// 	type: 'success',
+				// 	duration: '20000'
+				// })
 			},
 			searchClearEvent () {
 				console.log('search clear event');
