@@ -100,7 +100,8 @@
 					}
 				],
 				loadStatus: 'loadmore',
-				scrollTop: 0
+				scrollTop: 0,
+        res: null
 			};
 		},
 		methods: {
@@ -128,12 +129,16 @@
 			openDetail (item) {
 				const url = `/pages/detail/detail?site=${this.site}&uuid=${item.id}`
 				this.$u.route({url: url})
-			}
+			},
+      getClass () {
+        console.log('get class')
+      }
 		},
 		onPageScroll(e) {
 			this.scrollTop = e.scrollTop;
 		},
 		onLoad() {
+      this.getClass();
 			this.addRandomData();
 		},
 		onReachBottom() {
