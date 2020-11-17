@@ -150,7 +150,7 @@ export default {
     },
     typeConfirm() {},
     openDetail(item) {
-      const url = `/pages/detail/detail?site=${this.site.key}&uuid=${item.id}`;
+      const url = `/pages/detail/detail?site=${this.site.key}&id=${item.id}`;
       this.$u.route({ url: url });
     },
     async getSite() {
@@ -181,8 +181,7 @@ export default {
     async addData(key, page, t) {
       const res = await http.list(key, page, t);
       for (let i = 0; i < res.length; i++) {
-        let item = JSON.parse(JSON.stringify(res[i]));
-        item.id = this.$u.guid();
+        let item = res[i];
         this.flowList.push(item);
       }
     }

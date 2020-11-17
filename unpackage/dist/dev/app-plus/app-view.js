@@ -5003,16 +5003,7 @@ var render = function() {
       _c(
         "v-uni-view",
         { staticClass: _vm._$g(8, "sc"), attrs: { _i: 8 } },
-        [
-          _c("img", {
-            attrs: {
-              src:
-                "http://pic1.sc.chinaz.com/Files/pic/pic9/202002/zzpic23344_s.jpg",
-              alt: "",
-              _i: 9
-            }
-          })
-        ],
+        [_c("img", { attrs: { src: _vm._$g(9, "a-src"), _i: 9 } })],
         1
       ),
       _c(
@@ -5040,11 +5031,7 @@ var render = function() {
               _c(
                 "v-uni-text",
                 { staticClass: _vm._$g(14, "sc"), attrs: { _i: 14 } },
-                [
-                  _vm._v(
-                    "死士死士死士死士死士死士死士死士死士死士死士死士死士死士死士死士死士死士"
-                  )
-                ]
+                [_vm._v(_vm._$g(14, "t0-0"))]
               )
             ],
             1
@@ -5053,44 +5040,72 @@ var render = function() {
             "v-uni-view",
             { staticClass: _vm._$g(15, "sc"), attrs: { _i: 15 } },
             [
-              _c("v-uni-text", { attrs: { _i: 16 } }, [_vm._v("日本")]),
+              _c("v-uni-text", { attrs: { _i: 16 } }, [
+                _vm._v(_vm._$g(16, "t0-0"))
+              ]),
               _c(
                 "v-uni-text",
                 { staticClass: _vm._$g(17, "sc"), attrs: { _i: 17 } },
                 [_vm._v("|")]
               ),
-              _c("v-uni-text", { attrs: { _i: 18 } }, [_vm._v("日语")]),
+              _c("v-uni-text", { attrs: { _i: 18 } }, [
+                _vm._v(_vm._$g(18, "t0-0"))
+              ]),
               _c(
                 "v-uni-text",
                 { staticClass: _vm._$g(19, "sc"), attrs: { _i: 19 } },
                 [_vm._v("|")]
               ),
-              _c("v-uni-text", { attrs: { _i: 20 } }, [_vm._v("动作片")]),
+              _c("v-uni-text", { attrs: { _i: 20 } }, [
+                _vm._v(_vm._$g(20, "t0-0"))
+              ]),
               _c(
                 "v-uni-text",
                 { staticClass: _vm._$g(21, "sc"), attrs: { _i: 21 } },
                 [_vm._v("|")]
               ),
-              _c("v-uni-text", { attrs: { _i: 22 } }, [_vm._v("2019")])
+              _c("v-uni-text", { attrs: { _i: 22 } }, [
+                _vm._v(_vm._$g(22, "t0-0"))
+              ]),
+              _c(
+                "v-uni-text",
+                { staticClass: _vm._$g(23, "sc"), attrs: { _i: 23 } },
+                [_vm._v("|")]
+              ),
+              _c("v-uni-text", { attrs: { _i: 24 } }, [
+                _vm._v(_vm._$g(24, "t0-0"))
+              ])
             ],
             1
           ),
           _c(
             "v-uni-view",
-            { staticClass: _vm._$g(23, "sc"), attrs: { _i: 23 } },
-            [_c("v-uni-text", { attrs: { _i: 24 } }, [_vm._v("导演:")])],
-            1
-          ),
-          _c(
-            "v-uni-view",
             { staticClass: _vm._$g(25, "sc"), attrs: { _i: 25 } },
-            [_c("v-uni-text", { attrs: { _i: 26 } }, [_vm._v("演员:")])],
+            [
+              _c("v-uni-text", { attrs: { _i: 26 } }, [
+                _vm._v("导演: " + _vm._$g(26, "t0-0"))
+              ])
+            ],
             1
           ),
           _c(
             "v-uni-view",
             { staticClass: _vm._$g(27, "sc"), attrs: { _i: 27 } },
-            [_c("v-uni-text", { attrs: { _i: 28 } }, [_vm._v("简介:")])],
+            [
+              _c("v-uni-text", { attrs: { _i: 28 } }, [
+                _vm._v("演员: " + _vm._$g(28, "t0-0"))
+              ])
+            ],
+            1
+          ),
+          _c(
+            "v-uni-view",
+            { staticClass: _vm._$g(29, "sc"), attrs: { _i: 29 } },
+            [
+              _c("v-uni-text", { attrs: { _i: 30 } }, [
+                _vm._v("简介: " + _vm._$g(30, "t0-0"))
+              ])
+            ],
             1
           )
         ],
@@ -5098,17 +5113,17 @@ var render = function() {
       ),
       _c(
         "v-uni-view",
-        { attrs: { _i: 29 } },
+        { attrs: { _i: 31 } },
         [
           _c("u-select", {
-            attrs: { _i: 30 },
+            attrs: { _i: 32 },
             on: {
               confirm: function($event) {
                 return _vm.$handleViewEvent($event)
               }
             },
             model: {
-              value: _vm._$g(30, "v-model"),
+              value: _vm._$g(32, "v-model"),
               callback: function() {},
               expression: "playShow"
             }
@@ -5208,7 +5223,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../software/HBuilderX/plugins/uniapp-cli/node_modules/css-loader/dist/runtime/api.js */ 16);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".detail .status_bar[data-v-1262b4f6] {\n  height: var(--status-bar-height);\n  width: 100%;\n}\n.detail .header[data-v-1262b4f6] {\n  position: absolute;\n  top: var(--status-bar-height);\n  left: 0;\n  padding: 0 20px;\n  height: 20px;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: flex;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n          align-items: center;\n  -webkit-box-pack: justify;\n  -webkit-justify-content: space-between;\n          justify-content: space-between;\n  z-index: 2;\n  width: 100%;\n  margin-top: 10px;\n}\n.detail .header .header-icon[data-v-1262b4f6] {\n  width: 30px;\n  height: 30px;\n  background-color: rgba(255, 255, 255, 0.7);\n  text-align: center;\n  line-height: 30px;\n  -webkit-border-radius: 50%;\n          border-radius: 50%;\n}\n.detail .bgImg[data-v-1262b4f6] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  z-index: 0;\n}\n.detail .bgImg img[data-v-1262b4f6] {\n  width: 100%;\n  height: auto;\n}\n.detail .box-info[data-v-1262b4f6] {\n  width: 100%;\n  height: auto;\n  padding: 40px 30px;\n  -webkit-border-radius: 30px;\n          border-radius: 30px;\n  background-color: #FFFFFF;\n  position: absolute;\n  margin-top: 50vh;\n  z-index: 1;\n}\n.detail .box-info .play-btn[data-v-1262b4f6] {\n  position: absolute;\n  top: -80rpx;\n  right: 50px;\n  padding: 20rpx;\n  -webkit-border-radius: 50%;\n          border-radius: 50%;\n  background-color: #FFFFFF;\n  border: 1px solid #f8f8f8;\n}\n.detail .box-info .name-box[data-v-1262b4f6] {\n  width: 100%;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.detail .box-info .name-box .name[data-v-1262b4f6] {\n  font-size: 40rpx;\n}\n.detail .box-info .info-box[data-v-1262b4f6] {\n  margin-top: 10rpx;\n}\n.detail .box-info .info-box .gap[data-v-1262b4f6] {\n  margin: 0 10rpx;\n}\n", ""]);
+exports.push([module.i, ".detail .status_bar[data-v-1262b4f6] {\n  height: var(--status-bar-height);\n  width: 100%;\n}\n.detail .header[data-v-1262b4f6] {\n  position: absolute;\n  top: var(--status-bar-height);\n  left: 0;\n  padding: 0 20px;\n  height: 20px;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: flex;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n          align-items: center;\n  -webkit-box-pack: justify;\n  -webkit-justify-content: space-between;\n          justify-content: space-between;\n  z-index: 2;\n  width: 100%;\n  margin-top: 10px;\n}\n.detail .header .header-icon[data-v-1262b4f6] {\n  width: 30px;\n  height: 30px;\n  background-color: rgba(255, 255, 255, 0.7);\n  text-align: center;\n  line-height: 30px;\n  -webkit-border-radius: 50%;\n          border-radius: 50%;\n}\n.detail .bgImg[data-v-1262b4f6] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  z-index: 0;\n}\n.detail .bgImg img[data-v-1262b4f6] {\n  width: 100%;\n  height: auto;\n}\n.detail .box-info[data-v-1262b4f6] {\n  width: 100%;\n  height: auto;\n  padding: 40px 30px;\n  -webkit-border-radius: 30px;\n          border-radius: 30px;\n  background-color: #FFFFFF;\n  position: absolute;\n  margin-top: 50vh;\n  z-index: 1;\n}\n.detail .box-info .play-btn[data-v-1262b4f6] {\n  position: absolute;\n  top: -80rpx;\n  right: 50px;\n  padding: 20rpx;\n  -webkit-border-radius: 50%;\n          border-radius: 50%;\n  background-color: #FFFFFF;\n  border: 1px solid #f8f8f8;\n}\n.detail .box-info .name-box[data-v-1262b4f6] {\n  width: 100%;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.detail .box-info .name-box .name[data-v-1262b4f6] {\n  font-size: 40rpx;\n}\n.detail .box-info .info-box[data-v-1262b4f6] {\n  margin-top: 20rpx;\n}\n.detail .box-info .info-box .gap[data-v-1262b4f6] {\n  margin: 0 10rpx;\n}\n", ""]);
 // Exports
 module.exports = exports;
 
