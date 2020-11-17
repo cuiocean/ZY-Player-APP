@@ -8,9 +8,11 @@
         :clearabled="true"
         @clear="searchClearEvent"
       ></u-search>
-      <u-button @click="openSiteSelect" size="medium">网站</u-button>
-      <u-button @click="openSiteSelect" size="medium">分类</u-button>
     </view>
+		<view class="btns">
+      <u-button @click="openSiteSelect" size="mini">网站: {{site.name}}</u-button>
+      <u-button @click="openSiteSelect" size="mini">分类: {{type.name}}</u-button>
+		</view>
     <view class="body">
       <u-waterfall v-model="flowList" ref="uWaterfall">
         <template v-slot:left="{ leftList }">
@@ -61,7 +63,8 @@
       ></u-loadmore>
     </view>
     <u-back-top :scroll-top="scrollTop" icon="search"></u-back-top>
-		<u-select v-model="siteShow" :list="siteList" value-name="key" label-name="name" :default-value="[site.id]" @confirm="siteConfirm"></u-select>
+		<u-select v-model="siteShow" :list="siteList" value-name="key" label-name="name" :default-value="siteDefault" @confirm="siteConfirm"></u-select>
+		<u-select v-model="typeShow" :list="typeList" value-name="key" label-name="name" @confirm="typeConfirm"></u-select>
     <u-top-tips ref="uTips"></u-top-tips>
   </view>
 </template>
@@ -72,20 +75,13 @@ export default {
   data() {
     return {
       search: "",
-			site: {
-				id: 1,
-				key: 'ki',
-				name: 'ok'
-			},
+			site: {},
 			siteShow: false,
+			siteDefault: [],
       siteList: [],
-      type: {},
-      typeList: [
-        {
-          label: 'lala',
-          value: 'lala'
-        }
-      ],
+			type: {},
+			typeShow: false,
+      typeList: [],
       flowList: [],
       list: [
         {
@@ -183,12 +179,14 @@ export default {
         this.flowList.push(item);
       }
     },
-    openSiteSelect () {
+    async openSiteSelect () {
 			this.siteShow = true
+			const site = await db.get('site', this.site.key)
+			this.siteDefault = [site.data.id - 1]
 		},
 		async siteConfirm (e) {
-			console.log(e, 'eeeeeeee')
-			const db = await db.get
+			const site = await db.get('site', e[0].value)
+			this.site = site.data
 		},
     openDetail(item) {
       const url = `/pages/detail/detail?site=${this.site}&uuid=${item.id}`;
@@ -199,8 +197,10 @@ export default {
 			if (res.flag) {
 				this.siteList = res.data
 			}
-			const setting = await db.getAll('setting')
-			console.log(setting)
+			const setting = await db.get('setting', 'config')
+			const site = await db.get('site', setting.data.site)
+			this.site = site.data
+			this.siteDefault = [site.id]
 		},
     getClass() {
       // console.log("get class");
@@ -229,6 +229,12 @@ export default {
 .film {
   padding: 20rpx 20rpx;
   background-color: #f8f8f8;
+	.btns{
+		margin-top: 10rpx;
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+	}
   .body {
     .box-warter {
       border-radius: 8rpx;
