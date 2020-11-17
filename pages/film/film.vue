@@ -70,7 +70,8 @@
 </template>
 
 <script>
-import db from "../../utils/database.js";
+import db from "../../utils/database.js"
+import http from "../../utils/request.js"
 export default {
   data() {
     return {
@@ -141,31 +142,8 @@ export default {
   },
   methods: {
     async searchEvent() {
-      const site = {
-        key: "okzyw",
-        name: "ok资源网",
-        api: "https://www.okzyw.com/inc/api.php",
-        isActive: true,
-      };
-      // const data = await db.add('site', site)
-      // const data = await db.remove('site', site.key)
-      // const data = await db.get('site', 'okzy')
-      // const data = await db.init('site')
-      const data = await db.removeAll("site");
-      // const data = await db.checkSiteKey('zdzyw')
-      console.log(data, "film.vue");
-      // db.addSiteKey(site.key, site)
-      //   .then((res) => {
-      //     console.log(res);
-      //   })
-      //   .catch((err) => {
-      //     console.log(err);
-      //   });
-      // this.$refs.uTips.show({
-      // 	title: 'lala',
-      // 	type: 'success',
-      // 	duration: '20000'
-      // })
+			const res = await http.class('mahuazy')
+			console.log(res, 'res')
     },
     searchClearEvent() {
       console.log("search clear event");
@@ -188,6 +166,7 @@ export default {
 			const site = await db.get('site', e[0].value)
 			this.site = site.data
 		},
+		typeConfirm () {},
     openDetail(item) {
       const url = `/pages/detail/detail?site=${this.site}&uuid=${item.id}`;
       this.$u.route({ url: url });
