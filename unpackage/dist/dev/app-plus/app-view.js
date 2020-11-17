@@ -227,7 +227,9 @@ var components = {
   uLoadmore: __webpack_require__(/*! uview-ui/components/u-loadmore/u-loadmore.vue */ 49).default,
   uBackTop: __webpack_require__(/*! uview-ui/components/u-back-top/u-back-top.vue */ 73).default,
   uSelect: __webpack_require__(/*! uview-ui/components/u-select/u-select.vue */ 81).default,
-  uTopTips: __webpack_require__(/*! uview-ui/components/u-top-tips/u-top-tips.vue */ 105).default
+  uTopTips: __webpack_require__(/*! uview-ui/components/u-top-tips/u-top-tips.vue */ 105).default,
+  uMask: __webpack_require__(/*! uview-ui/components/u-mask/u-mask.vue */ 87).default,
+  uLoading: __webpack_require__(/*! uview-ui/components/u-loading/u-loading.vue */ 60).default
 }
 var render = function() {
   var _vm = this
@@ -290,23 +292,26 @@ var render = function() {
               }
             },
             [_vm._v("分类: " + _vm._$g(5, "t0-0"))]
-          )
+          ),
+          _c("v-uni-text", { attrs: { _i: 6 } }, [
+            _vm._v(_vm._$g(6, "t0-0") + "--共: " + _vm._$g(6, "t0-1") + " 资源")
+          ])
         ],
         1
       ),
       _c(
         "v-uni-view",
-        { staticClass: _vm._$g(6, "sc"), attrs: { _i: 6 } },
+        { staticClass: _vm._$g(7, "sc"), attrs: { _i: 7 } },
         [
           _c("u-waterfall", {
             ref: "uWaterfall",
-            attrs: { _i: 7 },
+            attrs: { _i: 8 },
             scopedSlots: _vm._u([
               {
                 key: "left",
                 fn: function(ref, _svm, _si) {
                   var leftList = ref.leftList
-                  return _vm._l(_svm._$g("9-" + _si, "f"), function(
+                  return _vm._l(_svm._$g("10-" + _si, "f"), function(
                     item,
                     index,
                     $20,
@@ -316,8 +321,8 @@ var render = function() {
                       "v-uni-view",
                       {
                         key: item,
-                        staticClass: _svm._$g("9-" + _si + $30, "sc"),
-                        attrs: { _i: "9-" + _si + $30 },
+                        staticClass: _svm._$g("10-" + _si + $30, "sc"),
+                        attrs: { _i: "10-" + _si + $30 },
                         on: {
                           click: function($event) {
                             return _vm.$handleViewEvent($event)
@@ -325,30 +330,22 @@ var render = function() {
                         }
                       },
                       [
-                        _c("u-lazy-load", { attrs: { _i: "10-" + _si + $30 } }),
-                        _c(
-                          "v-uni-view",
-                          {
-                            staticClass: _svm._$g("11-" + _si + $30, "sc"),
-                            attrs: { _i: "11-" + _si + $30 }
-                          },
-                          [_vm._v(_svm._$g("11-" + _si + $30, "t0-0"))]
-                        ),
+                        _c("u-lazy-load", { attrs: { _i: "11-" + _si + $30 } }),
                         _c(
                           "v-uni-view",
                           {
                             staticClass: _svm._$g("12-" + _si + $30, "sc"),
                             attrs: { _i: "12-" + _si + $30 }
                           },
+                          [_vm._v(_svm._$g("12-" + _si + $30, "t0-0"))]
+                        ),
+                        _c(
+                          "v-uni-view",
+                          {
+                            staticClass: _svm._$g("13-" + _si + $30, "sc"),
+                            attrs: { _i: "13-" + _si + $30 }
+                          },
                           [
-                            _c(
-                              "v-uni-view",
-                              {
-                                staticClass: _svm._$g("13-" + _si + $30, "sc"),
-                                attrs: { _i: "13-" + _si + $30 }
-                              },
-                              [_vm._v(_svm._$g("13-" + _si + $30, "t0-0"))]
-                            ),
                             _c(
                               "v-uni-view",
                               {
@@ -356,6 +353,14 @@ var render = function() {
                                 attrs: { _i: "14-" + _si + $30 }
                               },
                               [_vm._v(_svm._$g("14-" + _si + $30, "t0-0"))]
+                            ),
+                            _c(
+                              "v-uni-view",
+                              {
+                                staticClass: _svm._$g("15-" + _si + $30, "sc"),
+                                attrs: { _i: "15-" + _si + $30 }
+                              },
+                              [_vm._v(_svm._$g("15-" + _si + $30, "t0-0"))]
                             )
                           ],
                           1
@@ -370,7 +375,7 @@ var render = function() {
                 key: "right",
                 fn: function(ref, _svm, _si) {
                   var rightList = ref.rightList
-                  return _vm._l(_svm._$g("16-" + _si, "f"), function(
+                  return _vm._l(_svm._$g("17-" + _si, "f"), function(
                     item,
                     index,
                     $21,
@@ -380,8 +385,8 @@ var render = function() {
                       "v-uni-view",
                       {
                         key: item,
-                        staticClass: _svm._$g("16-" + _si + $31, "sc"),
-                        attrs: { _i: "16-" + _si + $31 },
+                        staticClass: _svm._$g("17-" + _si + $31, "sc"),
+                        attrs: { _i: "17-" + _si + $31 },
                         on: {
                           click: function($event) {
                             return _vm.$handleViewEvent($event)
@@ -389,30 +394,22 @@ var render = function() {
                         }
                       },
                       [
-                        _c("u-lazy-load", { attrs: { _i: "17-" + _si + $31 } }),
-                        _c(
-                          "v-uni-view",
-                          {
-                            staticClass: _svm._$g("18-" + _si + $31, "sc"),
-                            attrs: { _i: "18-" + _si + $31 }
-                          },
-                          [_vm._v(_svm._$g("18-" + _si + $31, "t0-0"))]
-                        ),
+                        _c("u-lazy-load", { attrs: { _i: "18-" + _si + $31 } }),
                         _c(
                           "v-uni-view",
                           {
                             staticClass: _svm._$g("19-" + _si + $31, "sc"),
                             attrs: { _i: "19-" + _si + $31 }
                           },
+                          [_vm._v(_svm._$g("19-" + _si + $31, "t0-0"))]
+                        ),
+                        _c(
+                          "v-uni-view",
+                          {
+                            staticClass: _svm._$g("20-" + _si + $31, "sc"),
+                            attrs: { _i: "20-" + _si + $31 }
+                          },
                           [
-                            _c(
-                              "v-uni-view",
-                              {
-                                staticClass: _svm._$g("20-" + _si + $31, "sc"),
-                                attrs: { _i: "20-" + _si + $31 }
-                              },
-                              [_vm._v(_svm._$g("20-" + _si + $31, "t0-0"))]
-                            ),
                             _c(
                               "v-uni-view",
                               {
@@ -420,6 +417,14 @@ var render = function() {
                                 attrs: { _i: "21-" + _si + $31 }
                               },
                               [_vm._v(_svm._$g("21-" + _si + $31, "t0-0"))]
+                            ),
+                            _c(
+                              "v-uni-view",
+                              {
+                                staticClass: _svm._$g("22-" + _si + $31, "sc"),
+                                attrs: { _i: "22-" + _si + $31 }
+                              },
+                              [_vm._v(_svm._$g("22-" + _si + $31, "t0-0"))]
                             )
                           ],
                           1
@@ -432,13 +437,13 @@ var render = function() {
               }
             ]),
             model: {
-              value: _vm._$g(7, "v-model"),
+              value: _vm._$g(8, "v-model"),
               callback: function() {},
               expression: "flowList"
             }
           }),
           _c("u-loadmore", {
-            attrs: { _i: 22 },
+            attrs: { _i: 23 },
             on: {
               loadmore: function($event) {
                 return _vm.$handleViewEvent($event)
@@ -448,20 +453,7 @@ var render = function() {
         ],
         1
       ),
-      _c("u-back-top", { attrs: { _i: 23 } }),
-      _c("u-select", {
-        attrs: { _i: 24 },
-        on: {
-          confirm: function($event) {
-            return _vm.$handleViewEvent($event)
-          }
-        },
-        model: {
-          value: _vm._$g(24, "v-model"),
-          callback: function() {},
-          expression: "siteShow"
-        }
-      }),
+      _c("u-back-top", { attrs: { _i: 24 } }),
       _c("u-select", {
         attrs: { _i: 25 },
         on: {
@@ -472,10 +464,43 @@ var render = function() {
         model: {
           value: _vm._$g(25, "v-model"),
           callback: function() {},
+          expression: "siteShow"
+        }
+      }),
+      _c("u-select", {
+        attrs: { _i: 26 },
+        on: {
+          confirm: function($event) {
+            return _vm.$handleViewEvent($event)
+          }
+        },
+        model: {
+          value: _vm._$g(26, "v-model"),
+          callback: function() {},
           expression: "typeShow"
         }
       }),
-      _c("u-top-tips", { ref: "uTips", attrs: { _i: 26 } })
+      _c("u-top-tips", { ref: "uTips", attrs: { _i: 27 } }),
+      _c(
+        "u-mask",
+        {
+          attrs: { _i: 28 },
+          on: {
+            click: function($event) {
+              return _vm.$handleViewEvent($event, { stop: true })
+            }
+          }
+        },
+        [
+          _c(
+            "v-uni-view",
+            { staticClass: _vm._$g(29, "sc"), attrs: { _i: 29 } },
+            [_c("u-loading", { attrs: { _i: 30 } })],
+            1
+          )
+        ],
+        1
+      )
     ],
     1
   )
@@ -4099,7 +4124,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../software/HBuilderX/plugins/uniapp-cli/node_modules/css-loader/dist/runtime/api.js */ 16);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".film[data-v-5d0f7bd6] {\n  padding: 20rpx 20rpx;\n  background-color: #f8f8f8;\n}\n.film .btns[data-v-5d0f7bd6] {\n  margin-top: 10rpx;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: flex;\n  -webkit-justify-content: space-around;\n          justify-content: space-around;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n          align-items: center;\n}\n.film .body .box-warter[data-v-5d0f7bd6] {\n  -webkit-border-radius: 8rpx;\n          border-radius: 8rpx;\n  padding: 14rpx;\n  background-color: #fff;\n}\n.film .body .box-warter .box-info[data-v-5d0f7bd6] {\n  margin-top: 10rpx;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: flex;\n  -webkit-box-pack: justify;\n  -webkit-justify-content: space-between;\n          justify-content: space-between;\n  font-size: 12px;\n}\n.film .body .left-box-warter[data-v-5d0f7bd6] {\n  margin: 10rpx 10rpx 10rpx 0;\n}\n.film .body .right-box-warter[data-v-5d0f7bd6] {\n  margin: 10rpx 0rpx 10rpx 10rpx;\n}\n", ""]);
+exports.push([module.i, ".film[data-v-5d0f7bd6] {\n  padding: 20rpx 20rpx;\n  background-color: #f8f8f8;\n}\n.film .btns[data-v-5d0f7bd6] {\n  margin-top: 10rpx;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: flex;\n  -webkit-justify-content: space-around;\n          justify-content: space-around;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n          align-items: center;\n}\n.film .body .box-warter[data-v-5d0f7bd6] {\n  -webkit-border-radius: 8rpx;\n          border-radius: 8rpx;\n  padding: 14rpx;\n  background-color: #fff;\n}\n.film .body .box-warter .box-info[data-v-5d0f7bd6] {\n  margin-top: 10rpx;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: flex;\n  -webkit-box-pack: justify;\n  -webkit-justify-content: space-between;\n          justify-content: space-between;\n  font-size: 12px;\n}\n.film .body .left-box-warter[data-v-5d0f7bd6] {\n  margin: 10rpx 10rpx 10rpx 0;\n}\n.film .body .right-box-warter[data-v-5d0f7bd6] {\n  margin: 10rpx 0rpx 10rpx 10rpx;\n}\n.film .mask[data-v-5d0f7bd6] {\n  width: 100%;\n  height: 100%;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: flex;\n  -webkit-box-pack: center;\n  -webkit-justify-content: center;\n          justify-content: center;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n          align-items: center;\n}\n", ""]);
 // Exports
 module.exports = exports;
 
