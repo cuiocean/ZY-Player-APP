@@ -97,7 +97,7 @@ export default {
     playEvent() {
       if (this.playList.length <= 1) {
         const d = this.playList[0];
-        const url = `/pages/play/play?site=${d.extra.site}&id=${d.extra.id}&url=${d.value}`;
+        const url = `/pages/play/play?site=${d.extra.site}&id=${d.extra.id}&name=${d.label}&url=${d.value}`;
         this.$u.route({ url: url });
       } else {
         this.playShow = !this.playShow;
@@ -105,7 +105,7 @@ export default {
     },
     playConfirm(e) {
       const d = e[0];
-      const url = `/pages/play/play?site=${d.extra.site}&id=${d.extra.id}&url=${d.value}`;
+      const url = `/pages/play/play?site=${d.extra.site}&id=${d.extra.id}&name=${d.label}&url=${d.value}`;
       this.$u.route({ url: url });
     },
     async getDetail(key, id) {
@@ -115,6 +115,7 @@ export default {
       for (const i of res.m3u8List) {
         const j = i.split("$");
         let d = {
+          index: i,
           value: j[1],
           label: j[0],
           extra: {

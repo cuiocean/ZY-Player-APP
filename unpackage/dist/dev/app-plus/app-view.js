@@ -294,7 +294,7 @@ var render = function() {
             [_vm._v("分类: " + _vm._$g(5, "t0-0"))]
           ),
           _c("v-uni-text", { attrs: { _i: 6 } }, [
-            _vm._v(_vm._$g(6, "t0-0") + "--共: " + _vm._$g(6, "t0-1") + " 资源")
+            _vm._v("共: " + _vm._$g(6, "t0-0") + " 资源")
           ])
         ],
         1
@@ -5322,11 +5322,7 @@ var render = function() {
         [
           _c("v-uni-video", {
             staticClass: _vm._$g(2, "sc"),
-            attrs: {
-              src:
-                "https://yuledy.helanzuida.com/20200914/10914_1fd2fcf5/index.m3u8",
-              _i: 2
-            }
+            attrs: { autoplay: true, src: _vm._$g(2, "a-src"), _i: 2 }
           })
         ],
         1

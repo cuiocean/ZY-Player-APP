@@ -16,7 +16,7 @@
       <u-button @click="openTypeSelect" size="mini"
         >分类: {{ type.name }}</u-button
       >
-      <text>{{pageCount}}--共: {{recordcount}} 资源</text>
+      <text>共: {{recordcount}} 资源</text>
     </view>
     <view class="body">
       <u-waterfall v-model="flowList" ref="uWaterfall">
