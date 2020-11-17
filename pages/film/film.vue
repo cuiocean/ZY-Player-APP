@@ -8,18 +8,8 @@
         :clearabled="true"
         @clear="searchClearEvent"
       ></u-search>
-      <u-dropdown ref="uDropdown" @open="dropdownOpen" @close="dropdownClose">
-        <u-dropdown-item
-          v-model="site"
-          title="网站"
-          :options="siteList"
-        ></u-dropdown-item>
-        <u-dropdown-item
-          v-model="type"
-          title="分类"
-          :options="typeList"
-        ></u-dropdown-item>
-      </u-dropdown>
+      <u-button @click="openSiteSelect" size="medium">网站</u-button>
+      <u-button @click="openSiteSelect" size="medium">分类</u-button>
     </view>
     <view class="body">
       <u-waterfall v-model="flowList" ref="uWaterfall">
@@ -71,29 +61,31 @@
       ></u-loadmore>
     </view>
     <u-back-top :scroll-top="scrollTop" icon="search"></u-back-top>
+		<u-select v-model="siteShow" :list="siteList" value-name="key" label-name="name" :default-value="[site.id]" @confirm="siteConfirm"></u-select>
     <u-top-tips ref="uTips"></u-top-tips>
   </view>
 </template>
 
 <script>
-import db from "../../utils/db";
+import db from "../../utils/database.js";
 export default {
   data() {
     return {
       search: "",
-      site: "zdzyw",
-      siteList: [
+			site: {
+				id: 1,
+				key: 'ki',
+				name: 'ok'
+			},
+			siteShow: false,
+      siteList: [],
+      type: {},
+      typeList: [
         {
-          label: "最大资源网",
-          value: "zdzyw",
-        },
-        {
-          label: "OK资源网",
-          value: "okzyw",
-        },
+          label: 'lala',
+          value: 'lala'
+        }
       ],
-      type: "",
-      typeList: [],
       flowList: [],
       list: [
         {
@@ -159,12 +151,13 @@ export default {
         api: "https://www.okzyw.com/inc/api.php",
         isActive: true,
       };
-			// const data = await db.addSiteKey('okzyw')
-			// const data = await db.getSite('okzyw')
-			const data = await db.removeAllSite()
-			// const data = await db.addSite(site)
-			// const data = await db.checkSiteKey('zdzyw')
-			console.log(data, 'film.vue')
+      // const data = await db.add('site', site)
+      // const data = await db.remove('site', site.key)
+      // const data = await db.get('site', 'okzy')
+      // const data = await db.init('site')
+      const data = await db.removeAll("site");
+      // const data = await db.checkSiteKey('zdzyw')
+      console.log(data, "film.vue");
       // db.addSiteKey(site.key, site)
       //   .then((res) => {
       //     console.log(res);
@@ -190,16 +183,25 @@ export default {
         this.flowList.push(item);
       }
     },
-    dropdownOpen() {
-      this.$refs.uDropdown.highlight();
-    },
-    dropdownClose(index) {
-      this.$refs.uDropdown.highlight(index);
-    },
+    openSiteSelect () {
+			this.siteShow = true
+		},
+		async siteConfirm (e) {
+			console.log(e, 'eeeeeeee')
+			const db = await db.get
+		},
     openDetail(item) {
       const url = `/pages/detail/detail?site=${this.site}&uuid=${item.id}`;
       this.$u.route({ url: url });
     },
+    async getSite() {
+			const res = await db.getAll('site')
+			if (res.flag) {
+				this.siteList = res.data
+			}
+			const setting = await db.getAll('setting')
+			console.log(setting)
+		},
     getClass() {
       // console.log("get class");
     },
@@ -208,6 +210,7 @@ export default {
     this.scrollTop = e.scrollTop;
   },
   onLoad() {
+		this.getSite()
     this.getClass();
     this.addRandomData();
   },

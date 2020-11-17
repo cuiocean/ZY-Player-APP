@@ -1,17 +1,18 @@
 import initSiteDB from './initSite.json'
+import initSettingDB from './initSetting.json'
 const db = {
-  // 获取所有视频源的 key
-  async getAllSiteKey () {
+  // 获取所有为 db 的数据
+  async getAllDB (db) {
     try {
-      const res = uni.getStorageSync('siteKey')
-      return { flag: true, data: res, msg: '获取到所有视频源的key' }
+      const res = uni.getStorageSync(`ZY-${db}-DB`)
+      return { flag: true, data: res, msg: `获取到所有为 ${db} 的数据` }
     } catch (err) {
       return { flag: false, data: null, msg: err }
     }
   },
-  // 检查视频源的 key 是否存在
-  async checkSiteKey (key) {
-    const res = await this.getAllSiteKey()
+  // 检查 db 里 key 是否存在
+  async checkItemKey (db, key) {
+    const res = await this.getAllDB(db)
     if (res.data.length > 0) {
       for (const i of res.data) {
         if (i === key) {
@@ -21,18 +22,18 @@ const db = {
     }
     return { flag: true, data: null, msg: `${key} 不存在` }
   },
-  // 添加视频源的 key
-  async addSiteKey (key) {
-    const res = await this.checkSiteKey(key)
+  // db 里添加 item key
+  async addItemKey (db, key) {
+    const res = await this.checkItemKey(db, key)
     if (res.flag) {
-      const keys = await this.getAllSiteKey()
+      const keys = await this.getAllDB(db)
       let arr = []
       if (keys.data && keys.data.length > 0) {
         arr = [...keys.data]
       }
       arr.push(key)
       try {
-        uni.setStorageSync('siteKey', arr)
+        uni.setStorageSync(`ZY-${db}-DB`, arr)
         return { flag: true, data: key, msg: '保存成功' }
       } catch(err) {
         return { flag: false, data: key, msg: err }
@@ -41,12 +42,12 @@ const db = {
       return res
     }
   },
-  // 添加视频源
-  async addSite (site) {
-    const res = await this.addSiteKey(site.key)
+  // db 里添加 item
+  async add (db, site) {
+    const res = await this.addItemKey(db, site.key)
     if (res && res.flag) {
       try {
-        uni.setStorageSync(`site-${site.key}`, site)
+        uni.setStorageSync(`${db}-${site.key}`, site)
         return { flag: true, data: {...site}, msg: '保存成功' }
       } catch(err) {
         return err
@@ -55,10 +56,10 @@ const db = {
       return res
     }
   },
-  // 查询获取单个视频源
-  async getSite (key) {
+  // 查询获取单个 item
+  async get (db, key) {
     try {
-      const res = uni.getStorageSync(`site-${key}`)
+      const res = uni.getStorageSync(`${db}-${key}`)
       if (res) {
         return { flag: true, data: {...res}, msg: `查询到 ${key} 值的视频源` }
       }
@@ -66,13 +67,13 @@ const db = {
       return { flag: false, data: null, msg: {...err} }
     }
   },
-  // 查询获取所有视频源
-  async getAllSite () {
-    const res = await this.getAllSiteKey()
+  // 查询获取 db 所有 item
+  async getAll (db) {
+    const res = await this.getAllDB(db)
     if (res.data.length > 0) {
       let arr = []
       for (const i of res.data) {
-        const data = await this.getSite(i)
+        const data = await this.get(db, i)
         arr.push(data.data)
       }
       return { flag: true, data: arr, msg: '已查找所有视频源' }
@@ -80,9 +81,9 @@ const db = {
       return res
     }
   },
-  // 移除单个视频源
-  async removeSite (key) {
-    const res = await this.getAllSiteKey()
+  // 移除 db 单个 item
+  async remove (db, key) {
+    const res = await this.getAllDB(db)
     if (res.data.length <= 0) {
       return { flag: false, data: null, msg: '视频源为空' }
     } else {
@@ -91,8 +92,8 @@ const db = {
       if (index >= 0) {
         arr.splice(index, 1)
         try {
-          uni.setStorageSync('siteKey', arr)
-          uni.removeStorageSync(`site-${key}`)
+          uni.setStorageSync(`ZY-${db}-DB`, arr)
+          uni.removeStorageSync(`${db}-${key}`)
           return { flag: true, data: key, msg: `${key} 移除成功` }
         } catch(err) {
           return { flag: false, data: key, msg: err }
@@ -100,41 +101,57 @@ const db = {
       }
     }
   },
-  // 移除所有视频源
-  async removeAllSite () {
-    const res = await this.getAllSiteKey()
+  // 移除 db 所有 item
+  async removeAll (db) {
+    const res = await this.getAllDB(db)
     if (res.data.length <= 0) {
       return { flag: false, data: null, msg: '视频源为空' }
     } else {
       let arr = [...res.data]
       for (const i of arr) {
-        await this.removeSite(i)
+        await this.remove(db, i)
       }
       try {
-        uni.removeStorageSync('siteKey')
-        return { flag: true, data: null, msg: '清空数据库成功' }
+        uni.removeStorageSync(`ZY-${db}-DB`)
+        return { flag: true, data: null, msg: `${db} 数据库清空成功` }
       } catch (err) {
-        return { flag: false, data: null, msg: '清空数据库失败' }
+        return { flag: false, data: null, msg: `${db} 数据库清空失败` }
       }
     }
   },
-  // 初始化视频源数据库
-  async initSite () {
-    const res = await this.getAllSiteKey()
+  // 初始化 db 数据库
+  async init (db) {
+    const res = await this.getAllDB(db)
     if (res.data.length > 0) {
       return { flag: false, data: null, msg: '初始化失败, 视频源数据库已存在' }
     } else {
-      await this.resetSite()
+      await this.reset(db)
       return { flag: true, data: null, msg: '初始化成功' }
     }
   },
-  // 重置视频源数据库
-  async resetSite () {
-    await this.removeAllSite()
-    for (const i of initSiteDB) {
-      await this.addSite(i)
+  // 重置 db 数据库
+  async reset (db) {
+    await this.removeAll()
+    if (db === 'site') {
+      for (const i of initSiteDB) {
+        await this.add(db, i)
+      }
     }
-    return { flag: true, data: null, msg: '重置成功' }
+    if (db === 'setting') {
+      for (const i of initSettingDB) {
+        await this.add(db, i)
+      }
+    }
+    return { flag: true, data: null, msg: `${db} 数据库重置成功` }
+  },
+  // 清空所有的数据
+  async clearDB () {
+    try {
+      uni.clearStorageSync()
+      return { flag: true, data: null, msg: '清空软件数据库成功' }
+    } catch(err) {
+      return { flag: false, data: null, msg: err }
+    }
   }
 }
 
