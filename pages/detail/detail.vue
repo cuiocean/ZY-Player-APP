@@ -54,6 +54,7 @@
         @confirm="playConfirm"
       ></u-select>
     </view>
+    <u-toast ref="uToast" />
   </view>
 </template>
 
@@ -88,11 +89,22 @@ export default {
     moreShowEvent() {
       this.moreShow = !this.moreShow;
     },
-    moreConfirm(e) {
+    async moreConfirm(e) {
       const val = e[0].value;
       if (val === "share") {
       }
-      console.log(e, "eeee");
+      if (val === "star") {
+        let s = {...this.detail}
+        s.key = `${this.siteKey}-${this.id}`
+        const res = await db.add('star', s)
+        if (res.flag) {
+          this.$refs.uToast.show({
+            title: '收藏成功',
+            type: 'success',
+            duration: '2300'
+          })
+        }
+      }
     },
     playEvent() {
       if (this.playList.length <= 1) {

@@ -43,12 +43,12 @@ const db = {
     }
   },
   // db 里添加 item
-  async add (db, site) {
-    const res = await this.addItemKey(db, site.key)
+  async add (db, item) {
+    const res = await this.addItemKey(db, item.key)
     if (res && res.flag) {
       try {
-        uni.setStorageSync(`${db}-${site.key}`, site)
-        return { flag: true, data: {...site}, msg: '保存成功' }
+        uni.setStorageSync(`${db}-${item.key}`, item)
+        return { flag: true, data: {...item}, msg: '保存成功' }
       } catch(err) {
         return err
       }
@@ -61,7 +61,7 @@ const db = {
     try {
       const res = uni.getStorageSync(`${db}-${key}`)
       if (res) {
-        return { flag: true, data: {...res}, msg: `查询到 ${key} 值的视频源` }
+        return { flag: true, data: {...res}, msg: `查询到 ${key} 值的数据` }
       }
     } catch (err) {
       return { flag: false, data: null, msg: {...err} }
@@ -76,7 +76,7 @@ const db = {
         const data = await this.get(db, i)
         arr.push(data.data)
       }
-      return { flag: true, data: arr, msg: '已查找所有视频源' }
+      return { flag: true, data: arr, msg: '已获取所有数据' }
     } else {
       return res
     }
@@ -85,7 +85,7 @@ const db = {
   async remove (db, key) {
     const res = await this.getAllDB(db)
     if (res.data.length <= 0) {
-      return { flag: false, data: null, msg: '视频源为空' }
+      return { flag: false, data: null, msg: '数据为空' }
     } else {
       let arr = [...res.data]
       const index = arr.indexOf(key)
@@ -105,7 +105,7 @@ const db = {
   async removeAll (db) {
     const res = await this.getAllDB(db)
     if (res.data.length <= 0) {
-      return { flag: false, data: null, msg: '视频源为空' }
+      return { flag: false, data: null, msg: '数据为空' }
     } else {
       let arr = [...res.data]
       for (const i of arr) {
@@ -123,7 +123,7 @@ const db = {
   async init (db) {
     const res = await this.getAllDB(db)
     if (res.data.length > 0) {
-      return { flag: false, data: null, msg: '初始化失败, 视频源数据库已存在' }
+      return { flag: false, data: null, msg: `初始化失败, ${db} 数据库已存在` }
     } else {
       await this.reset(db)
       return { flag: true, data: null, msg: '初始化成功' }

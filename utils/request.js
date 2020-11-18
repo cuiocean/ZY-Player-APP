@@ -118,6 +118,7 @@ const http = {
           m3u8List = dd._t.split('#')
         }
         videoList.m3u8List = m3u8List
+        console.log(videoList, 'video list')
         return videoList
       }
       return null
