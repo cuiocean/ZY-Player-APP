@@ -2,8 +2,8 @@
     "name" : "ZY Player",
     "appid" : "__UNI__B85B395",
     "description" : "ZY Player 安卓版",
-    "versionName" : "1.0.1",
-    "versionCode" : "100",
+    "versionName" : "0.1.1",
+    "versionCode" : 101,
     "transformPx" : false,
     /* 5+App特有相关 */
     "app-plus" : {
