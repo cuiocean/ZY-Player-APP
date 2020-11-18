@@ -18,7 +18,7 @@
     {
       "path": "pages/me/me",
       "style": {
-        "navigationBarTitleText": "我"
+        "navigationStyle": "custom"
       }
     },
     {

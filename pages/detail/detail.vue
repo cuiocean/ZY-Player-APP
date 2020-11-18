@@ -241,7 +241,8 @@ export default {
         width: auto;
         height: 40vh;
         margin: 0 auto;
-        box-shadow: 0px 0px 1px 6px #fefefe;
+        border: 3px solid #fff;
+        box-shadow: 0px 0px 20px #acacac;
       }
     }
   }
@@ -257,7 +258,7 @@ export default {
     .star-btn {
       position: absolute;
       top: -60rpx;
-      right: 120px;
+      right: 240rpx;
       padding: 20rpx;
       border-radius: 50%;
       background-color: #FFFFFF;
@@ -266,7 +267,7 @@ export default {
     .play-btn {
       position: absolute;
       top: -80rpx;
-      right: 50px;
+      right: 100rpx;
       padding: 20rpx;
       border-radius: 50%;
       background-color: #FFFFFF;
