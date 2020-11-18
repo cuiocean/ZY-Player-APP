@@ -6571,15 +6571,17 @@ var render = function() {
                 }
               })
             : _vm._e(),
-          _c("u-icon", {
-            staticStyle: { "margin-left": "30rpx" },
-            attrs: { _i: 7 },
-            on: {
-              click: function($event) {
-                return _vm.$handleViewEvent($event)
-              }
-            }
-          })
+          _vm._$g(7, "i")
+            ? _c("u-icon", {
+                staticStyle: { "margin-left": "30rpx" },
+                attrs: { _i: 7 },
+                on: {
+                  click: function($event) {
+                    return _vm.$handleViewEvent($event)
+                  }
+                }
+              })
+            : _vm._e()
         ],
         1
       ),

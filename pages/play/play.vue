@@ -7,7 +7,7 @@
       <u-icon name="share" size="60" color="#1e88e5" style="margin-right: 30rpx"></u-icon>
       <u-icon v-if="!starShow" name="star" size="60" @click="addStar()"></u-icon>
       <u-icon v-if="starShow" name="star-fill" color="#ff4445" size="60" @click="removeStar()"></u-icon>
-      <u-icon name="play-circle" size="70" color="#6dd143" @click="selectPlay()" style="margin-left: 30rpx"></u-icon>
+      <u-icon name="play-circle" size="70" color="#6dd143" @click="selectPlay()" style="margin-left: 30rpx" v-if="playList.length > 0"></u-icon>
     </view>
     <view class="box-info">
       <view class="name-box">
@@ -73,18 +73,39 @@ export default {
       const res = await http.detail(key, id);
       this.detail = res;
       const arr = [];
+      let num = 1
       for (const i of res.m3u8List) {
-        const j = i.split("$");
-        let d = {
-          index: i,
-          value: j[1],
-          label: j[0],
-          extra: {
-            site: key,
-            id: id,
-          },
-        };
-        arr.push(d);
+        const j = i.split('$')
+        let label = res.m3u8List.length > 1 ? `第${num}集`: this.detail.name
+        if (j.length > 1) {
+          for (let m = 0; m < j.length; m++) {
+            if (j[m].indexOf('.m3u8') >= 0 && j[m].startsWith('http')) {
+              let d = {
+                index: i,
+                value: j[m],
+                label: label,
+                extra: {
+                  site: key,
+                  id: id,
+                },
+              };
+              arr.push(d);
+              break
+            }
+          }
+        } else {
+          let d = {
+            index: i,
+            value: j[0],
+            label: label,
+            extra: {
+              site: key,
+              id: id,
+            },
+          };
+          arr.push(d);
+        }
+        num++
       }
       this.playList = arr;
     },
