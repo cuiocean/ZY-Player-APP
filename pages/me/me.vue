@@ -14,7 +14,7 @@
       ></u-cell-item>
 			<u-cell-item
         title="视频源管理"
-        value="TODO（未完成）"
+        value="TODO（待完善）"
         :arrow="false"
         @click="siteEdite()"
       ></u-cell-item>
@@ -72,7 +72,6 @@ export default {
 			this.$refs.uToast.show({ title: '播放记录努力开发中...', type: 'warning', duration: '2300' })
 		},
 		siteEdite () {
-			this.$refs.uToast.show({ title: '视频源管理努力开发中...', type: 'warning', duration: '2300' })
       this.$u.route({ url: '/pages/site/site' });
 		},
 		async clearHistory () {

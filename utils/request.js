@@ -42,16 +42,15 @@ const http = {
   // 获取视频资源
   async list (key, pg = 1, t) {
     const site = await this.getSite(key)
-    let url = null
-    if (t) {
-      url = `${site.api}?ac=videolist&t=${t}&pg=${pg}`
-    } else {
-      url = `${site.api}?ac=videolist&pg=${pg}`
-    }
+    const url = `${site.api}?ac=videolist${t ? '&t=' + t: ''}&pg=${pg}`
     try {
       const res = await ajax.post(url)
       const json = parser.parse(res.data, this.xmlConfig)
-      return json.rss.list.video
+      if (json.rss.list.video) {
+        return json.rss.list.video
+      } else {
+        return []
+      }
     } catch (err) {
       return err
     }
@@ -59,12 +58,7 @@ const http = {
   // 获取总资源数, 以及页数
   async page (key, t) {
     const site = await this.getSite(key)
-    let url = null
-    if (t) {
-      url = `${site.api}?ac=videolist&t=${t}`
-    } else {
-      url = `${site.api}?ac=videolist`
-    }
+    const url = `${site.api}?ac=videolist${t ? '&t=' + t: ''}`
     try {
       const res = await ajax.post(url)
       const json = parser.parse(res.data, this.xmlConfig)
