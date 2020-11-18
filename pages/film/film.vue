@@ -213,11 +213,19 @@ export default {
       this.recordcount = res.recordcount
     },
     async getClass(key) {
-      const res = await http.class(key)
-      const allClass = [{ name: '最新', tid: 0 }]
-      this.typeList = allClass.concat(res)
+      console.log('getClass')
+      this.typeList = [{ name: '最新', tid: 0 }]
       this.type = { name: '最新', tid: 0 }
       this.typeDefault = [0]
+      http.class(key).then(res => {
+        // 屏蔽主分类
+        const classToHide = ['电影', '电影片', '电视剧', '连续剧', '综艺', '动漫']
+        res.forEach(ele => {
+          if (!classToHide.includes(ele.name)) {
+            this.typeList.push(ele)
+          }
+        })
+      })
     },
     async addData(key, page, t) {
       const res = await http.list(key, page, t);
