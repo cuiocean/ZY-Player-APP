@@ -139,13 +139,30 @@ export default {
       this.siteDefault = [site.id];
       await this.getPage()
       await this.getClass(this.site.key)
-      this.addData(this.site.key, this.pageCount)
+      await this.addData(this.site.key, this.pageCount)
+      this.pageCount--
+      await this.addData(this.site.key, this.pageCount)
       this.mask = false
     },
     openTypeSelect () {
       this.typeShow = true
     },
-    typeConfirm() {},
+    async typeConfirm(e) {
+      this.type = {
+        name: e[0].label,
+        tid: e[0].value
+      }
+      this.mask = true
+      this.list = []
+      this.flowList = []
+      this.$refs.uWaterfall.clear();
+      this.typeDefault = [this.type.tid];
+      await this.getPage(this.type.tid)
+      await this.addData(this.site.key, this.pageCount, this.type.tid)
+      this.pageCount--
+      await this.addData(this.site.key, this.pageCount, this.type.tid)
+      this.mask = false
+    },
     openDetail(item) {
       const url = `/pages/detail/detail?site=${this.site.key}&id=${item.id}`;
       this.$u.route({ url: url });
