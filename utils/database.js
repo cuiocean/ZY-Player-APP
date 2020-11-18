@@ -63,6 +63,7 @@ const db = {
       if (res) {
         return { flag: true, data: {...res}, msg: `查询到 ${key} 值的数据` }
       }
+      return { flag: false, data: null, msg: `没有查询到 ${key} 值的数据` }
     } catch (err) {
       return { flag: false, data: null, msg: {...err} }
     }
@@ -98,6 +99,8 @@ const db = {
         } catch(err) {
           return { flag: false, data: key, msg: err }
         }
+      } else {
+        return { flag: false, data: key, msg: `${key} 不存在, 移除失败` }
       }
     }
   },

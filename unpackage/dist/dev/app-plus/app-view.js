@@ -5308,7 +5308,8 @@ __webpack_require__.r(__webpack_exports__);
 var components = {
   uIcon: __webpack_require__(/*! uview-ui/components/u-icon/u-icon.vue */ 8).default,
   uButton: __webpack_require__(/*! uview-ui/components/u-button/u-button.vue */ 25).default,
-  uSelect: __webpack_require__(/*! uview-ui/components/u-select/u-select.vue */ 81).default
+  uSelect: __webpack_require__(/*! uview-ui/components/u-select/u-select.vue */ 81).default,
+  uToast: __webpack_require__(/*! uview-ui/components/u-toast/u-toast.vue */ 163).default
 }
 var render = function() {
   var _vm = this
@@ -5333,8 +5334,26 @@ var render = function() {
         "v-uni-view",
         { staticClass: _vm._$g(3, "sc"), attrs: { _i: 3 } },
         [
-          _c("u-icon", { attrs: { _i: 4 } }),
-          _c("u-icon", { attrs: { _i: 5 } }),
+          _vm._$g(4, "i")
+            ? _c("u-icon", {
+                attrs: { _i: 4 },
+                on: {
+                  click: function($event) {
+                    return _vm.$handleViewEvent($event)
+                  }
+                }
+              })
+            : _vm._e(),
+          _vm._$g(5, "i")
+            ? _c("u-icon", {
+                attrs: { _i: 5 },
+                on: {
+                  click: function($event) {
+                    return _vm.$handleViewEvent($event)
+                  }
+                }
+              })
+            : _vm._e(),
           _c("u-icon", {
             staticStyle: { "margin-left": "20rpx" },
             attrs: { _i: 6 }
@@ -5374,7 +5393,8 @@ var render = function() {
           callback: function() {},
           expression: "playShow"
         }
-      })
+      }),
+      _c("u-toast", { ref: "uToast", attrs: { _i: 10 } })
     ],
     1
   )

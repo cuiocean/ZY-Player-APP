@@ -4,8 +4,8 @@
       <video class="player" :autoplay="true" :src="url"></video>
     </view>
     <view class="icon-box">
-      <u-icon name="star" size="60"></u-icon>
-      <u-icon name="star-fill" size="60"></u-icon>
+      <u-icon v-if="!starShow" name="star" size="60" @click="addStar()"></u-icon>
+      <u-icon v-if="starShow" name="star-fill" size="60" @click="removeStar()"></u-icon>
       <u-icon name="share" size="60" style="margin-left: 20rpx"></u-icon>
     </view>
     <view class="btn-box">
@@ -19,10 +19,12 @@
       confirm-text="播放"
       @confirm="playConfirm"
     ></u-select>
+    <u-toast ref="uToast" />
   </view>
 </template>
 
 <script>
+import db from "../../utils/database.js";
 import http from "../../utils/request.js";
 export default {
   data() {
@@ -33,6 +35,8 @@ export default {
       url: "",
       playShow: false,
       playList: [],
+      detail: {},
+      starShow: true
     };
   },
   methods: {
@@ -47,6 +51,7 @@ export default {
     },
     async getDetail(key, id) {
       const res = await http.detail(key, id);
+      this.detail = res;
       const arr = [];
       for (const i of res.m3u8List) {
         const j = i.split("$");
@@ -63,6 +68,32 @@ export default {
       }
       this.playList = arr;
     },
+    async checkStar () {
+      const res = await db.get('star', `${this.siteKey}-${this.id}`)
+      console.log(res, 'check star')
+      this.starShow = res.flag
+    },
+    async removeStar () {
+      const res = await db.remove('star', `${this.siteKey}-${this.id}`)
+      console.log(res, 'remove star')
+      if (res.flag) {
+        this.$refs.uToast.show({ title: '移除收藏成功', type: 'success', duration: '2300' })
+      } else {
+        this.$refs.uToast.show({ title: '移除收藏失败', type: 'warning', duration: '2300' })
+      }
+      this.checkStar()
+    },
+    async addStar () {
+      let s = {...this.detail}
+      s.key = `${this.siteKey}-${this.id}`
+      const res = await db.add('star', s)
+      if (res.flag) {
+        this.$refs.uToast.show({ title: '添加收藏成功', type: 'success', duration: '2300' })
+      } else {
+        this.$refs.uToast.show({ title: '添加收藏失败', type: 'warning', duration: '2300' })
+      }
+      this.checkStar()
+    }
   },
   onLoad(opt) {
     this.siteKey = opt.site;
@@ -70,6 +101,7 @@ export default {
     this.name = opt.name;
     this.url = opt.url;
     this.getDetail(this.siteKey, this.id)
+    this.checkStar()
     uni.setNavigationBarTitle({ title: opt.name });
   }
 };

@@ -28,7 +28,6 @@
             @click="openDetail(item)"
           >
             <u-lazy-load
-              threshold="-450"
               border-radius="4"
               :image="item.pic"
               :index="index"
@@ -119,10 +118,8 @@ export default {
   },
   methods: {
     async searchEvent() {
-      const res = await http.list("mahuazy");
-      this.list = res;
-      this.waterShow = true;
-      console.log(this.list, res, "res");
+      const res = await db.clearDB();
+      console.log(res, "res");
     },
     searchClearEvent() {
       console.log("search clear event");
