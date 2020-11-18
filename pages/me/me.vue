@@ -8,7 +8,7 @@
     <u-cell-group>
 			<u-cell-item
         title="播放记录"
-        value="TODO（未完成）"
+        value="TODO（未开发）"
         :arrow="false"
         @click="openHistoryPage()"
       ></u-cell-item>
