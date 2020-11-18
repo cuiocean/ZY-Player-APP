@@ -2,7 +2,7 @@
   <view>
     <u-cell-group>
       <u-cell-item
-        v-for="(i, j) in starList"
+        v-for="(i, j) in historyList"
         :key="j"
         :title="i.name"
         :value="i.type"
@@ -18,7 +18,7 @@ import db from "../../utils/database.js";
 export default {
   data() {
     return {
-      starList: [],
+      historyList: [],
     };
   },
   methods: {
@@ -28,18 +28,18 @@ export default {
       const url = `/pages/detail/detail?site=${site}&id=${id}`;
       this.$u.route({ url: url });
     },
-    async getAllStar() {
-      const res = await db.getAll("star");
+    async getAllHistory() {
+      const res = await db.getAll("history");
       if (res.flag) {
-        this.starList = res.data;
+        this.historyList = res.data;
       }
     },
   },
   onLoad() {
-    this.getAllStar();
+    this.getAllHistory();
   },
   onTabItemTap() {
-    this.getAllStar();
+    this.getAllHistory();
   }
 };
 </script>

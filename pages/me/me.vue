@@ -69,7 +69,7 @@ export default {
   },
   methods: {
 		openHistoryPage () {
-			this.$refs.uToast.show({ title: '播放记录努力开发中...', type: 'warning', duration: '2300' })
+			this.$u.route({ url: '/pages/history/history' });
 		},
 		siteEdite () {
       this.$u.route({ url: '/pages/site/site' });
@@ -116,7 +116,7 @@ export default {
     width: 100%;
   }
   .logo {
-    margin-top: 10px;
+    margin-top: 20px;
     width: 100%;
     text-align: center;
     img {
