@@ -108,7 +108,6 @@ export default {
       typeDefault: [],
       typeList: [],
       flowList: [],
-      list: [],
       loadStatus: "loadmore",
       scrollTop: 0,
       pageCount: 0,
@@ -118,11 +117,31 @@ export default {
   },
   methods: {
     async searchEvent() {
-      const res = await db.clearDB();
-      console.log(res, "res");
+      if (this.search === '') {
+        return false
+      }
+      this.mask = true
+      this.flowList = []
+      this.$refs.uWaterfall.clear();
+      const res = await http.search(this.site.key, this.search)
+      if (res.length >= 1) {
+        for (const i of res) {
+          const data = await http.detail(this.site.key, i.id)
+          this.flowList.push(data);
+        }
+      }
+      this.mask = false
     },
-    searchClearEvent() {
-      console.log("search clear event");
+    async searchClearEvent() {
+      this.search = ''
+      this.mask = true
+      this.flowList = []
+      this.$refs.uWaterfall.clear();
+      await this.getPage(this.type.tid)
+      await this.addData(this.site.key, this.pageCount, this.type.tid)
+      this.pageCount--
+      await this.addData(this.site.key, this.pageCount, this.type.tid)
+      this.mask = false
     },
     async openSiteSelect() {
       this.siteShow = true;
@@ -131,7 +150,6 @@ export default {
     },
     async siteConfirm(e) {
       this.mask = true
-      this.list = []
       this.flowList = []
       this.$refs.uWaterfall.clear();
       const site = await db.get("site", e[0].value);
@@ -153,7 +171,6 @@ export default {
         tid: e[0].value
       }
       this.mask = true
-      this.list = []
       this.flowList = []
       this.$refs.uWaterfall.clear();
       this.typeDefault = [this.type.tid];
@@ -207,6 +224,10 @@ export default {
     this.getSite();
   },
   async onReachBottom() {
+    if (this.search !== '') {
+      this.loadStatus = "nomore";
+      return false
+    }
     this.loadStatus = "loading";
     this.pageCount--
     await this.addData(this.site.key, this.pageCount, this.type.tid);
