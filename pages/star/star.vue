@@ -16,7 +16,6 @@
 		},
 		methods: {
 			openDetail (item) {
-				console.log('item')
 				const url = `/pages/detail/detail?site=${this.site}&id=${this.id}&name=${item.label}&url=${item.value}`
 				this.$u.route({url: url})
 			}
