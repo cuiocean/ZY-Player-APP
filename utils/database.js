@@ -133,17 +133,13 @@ const db = {
     }
   },
   // 重置 db 数据库
-  async reset (db) {
+  async reset () {
     await this.removeAll()
-    if (db === 'site') {
-      for (const i of initSiteDB) {
-        await this.add(db, i)
-      }
+    for (const i of initSiteDB) {
+      await this.add(db, i)
     }
-    if (db === 'setting') {
-      for (const i of initSettingDB) {
-        await this.add(db, i)
-      }
+    for (const i of initSettingDB) {
+      await this.add(db, i)
     }
     return { flag: true, data: null, msg: `${db} 数据库重置成功` }
   },
