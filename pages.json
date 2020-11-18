@@ -16,6 +16,18 @@
       }
     },
     {
+      "path": "pages/history/history",
+      "style": {
+        "navigationBarTitleText": "播放记录"
+      }
+    },
+    {
+      "path": "pages/site/site",
+      "style": {
+        "navigationBarTitleText": "源管理"
+      }
+    },
+    {
       "path": "pages/me/me",
       "style": {
         "navigationStyle": "custom"

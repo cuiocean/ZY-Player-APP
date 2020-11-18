@@ -7,10 +7,22 @@
     <view class="name"> ZY Player Andriod </view>
     <u-cell-group>
 			<u-cell-item
+        title="播放记录"
+        value="TODO（未完成）"
+        :arrow="false"
+        @click="openHistoryPage()"
+      ></u-cell-item>
+			<u-cell-item
         title="视频源管理"
         value="TODO（未完成）"
         :arrow="false"
         @click="siteEdite()"
+      ></u-cell-item>
+			<u-cell-item
+        title="清空播放记录"
+        value="清空播放记录数据"
+        :arrow="false"
+        @click="clearHistory()"
       ></u-cell-item>
       <u-cell-item
         title="清空收藏夹"
@@ -56,8 +68,20 @@ export default {
 		};
   },
   methods: {
+		openHistoryPage () {
+			this.$refs.uToast.show({ title: '播放记录努力开发中...', type: 'warning', duration: '2300' })
+		},
 		siteEdite () {
 			this.$refs.uToast.show({ title: '视频源管理努力开发中...', type: 'warning', duration: '2300' })
+      this.$u.route({ url: '/pages/site/site' });
+		},
+		async clearHistory () {
+			const res = await db.removeAll('history')
+			if (res.flag) {
+				this.$refs.uToast.show({ title: '清空播放数据成功', type: 'success', duration: '2300' })
+			} else {
+				this.$refs.uToast.show({ title: '清空播放数据失败', type: 'warning', duration: '2300' })
+			}
 		},
     async clearStar() {
 			const res = await db.removeAll('star')
