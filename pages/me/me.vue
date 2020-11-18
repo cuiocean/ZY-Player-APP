@@ -6,6 +6,12 @@
     </view>
     <view class="name"> ZY Player Andriod </view>
     <u-cell-group>
+			<u-cell-item
+        title="视频源管理"
+        value="TODO（未完成）"
+        :arrow="false"
+        @click="siteEdite()"
+      ></u-cell-item>
       <u-cell-item
         title="清空收藏夹"
         value="清空收藏夹数据"
@@ -50,6 +56,9 @@ export default {
 		};
   },
   methods: {
+		siteEdite () {
+			this.$refs.uToast.show({ title: '视频源管理努力开发中...', type: 'warning', duration: '2300' })
+		},
     async clearStar() {
 			const res = await db.removeAll('star')
 			if (res.flag) {
@@ -63,16 +72,11 @@ export default {
 			this.modalShow = true
 		},
 		async resetAppconfirm () {
-			const c = await db.clearDB()
-			if (c.flag) {
-				const res = await db.reset()
-				if (res.flag) {
-					this.$refs.uToast.show({ title: '软件重置成功', type: 'success', duration: '2300' })
-				}
-			} else {
-				this.$refs.uToast.show({ title: '软件重置失败', type: 'warning', duration: '2300' })
-			}
+			await db.clearDB()
+			await db.reset('site')
+			await db.reset('setting')
 			this.modalShow = false
+			this.$refs.uToast.show({ title: '软件重置成功', type: 'success', duration: '2300' })
 		},
 		resetAppCancel () {
 			this.modalShow = false

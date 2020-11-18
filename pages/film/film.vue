@@ -89,6 +89,7 @@
         <u-loading mode="flower" size="80"></u-loading>
       </view>
     </u-mask>
+    <u-toast ref="uToast" />
   </view>
 </template>
 
@@ -187,15 +188,24 @@ export default {
     async getSite() {
       const res = await db.getAll("site");
       if (res.flag) {
-        this.siteList = res.data;
+        const arr = []
+        for (const i of res.data) {
+          if (i.isActive) {
+            arr.push(i)
+          }
+        }
+        this.siteList = arr
+      } else {
+        this.$refs.uToast.show({ title: '读取视频源出错', type: 'warning', duration: '2300' })
+        return false
       }
-      const setting = await db.get("setting", "config");
-      const site = await db.get("site", setting.data.site);
-      this.site = site.data;
-      this.siteDefault = [site.id];
+      this.site = this.siteList[0]
+      this.siteDefault = [this.site.id];
       await this.getPage()
       await this.getClass(this.site.key)
-      this.addData(this.site.key, this.pageCount)
+      await this.addData(this.site.key, this.pageCount)
+      this.pageCount--
+      await this.addData(this.site.key, this.pageCount)
     },
     async getPage (type) {
       const res = await http.page(this.site.key, type)
@@ -233,6 +243,9 @@ export default {
     await this.addData(this.site.key, this.pageCount, this.type.tid);
     this.loadStatus = "loadmore";
   },
+  onTabItemTap() {
+    this.getSite();
+  }
 };
 </script>
 
