@@ -18,9 +18,18 @@
     <view class="bgImg">
       <img :src="detail.pic" />
     </view>
+    <view class="boxImg">
+      <view class="boxImgWrapper">
+        <img :src="detail.pic" />
+      </view>
+    </view>
     <view class="box-info">
+      <view class="star-btn" @click="starEvent">
+        <u-icon v-if="!starShow" name="star" size="60"></u-icon>
+        <u-icon v-if="starShow" name="star-fill" color="#ff4445" size="60"></u-icon>
+      </view>
       <view class="play-btn" @click="playEvent">
-        <u-icon name="play-circle" size="100"></u-icon>
+        <u-icon name="play-circle" color="#6dd143" size="100"></u-icon>
       </view>
       <view class="name-box">
         <text class="name">{{ detail.name }}</text>
@@ -70,16 +79,13 @@ export default {
       moreShow: false,
       moreList: [
         {
-          value: "star",
-          label: "收藏",
-        },
-        {
           value: "share",
           label: "分享",
         },
       ],
       playShow: false,
       playList: [],
+      starShow: false
     };
   },
   methods: {
@@ -139,11 +145,43 @@ export default {
       }
       this.playList = arr;
     },
+    async checkStar () {
+      const res = await db.get('star', `${this.siteKey}-${this.id}`)
+      this.starShow = res.flag
+    },
+    async removeStar () {
+      const res = await db.remove('star', `${this.siteKey}-${this.id}`)
+      if (res.flag) {
+        this.$refs.uToast.show({ title: '移除收藏成功', type: 'success', duration: '1500' })
+      } else {
+        this.$refs.uToast.show({ title: '移除收藏失败', type: 'warning', duration: '1500' })
+      }
+      this.checkStar()
+    },
+    async addStar () {
+      let s = {...this.detail}
+      s.key = `${this.siteKey}-${this.id}`
+      const res = await db.add('star', s)
+      if (res.flag) {
+        this.$refs.uToast.show({ title: '添加收藏成功', type: 'success', duration: '1500' })
+      } else {
+        this.$refs.uToast.show({ title: '添加收藏失败', type: 'warning', duration: '1500' })
+      }
+      this.checkStar()
+    },
+    starEvent() {
+      if (this.starShow) {
+        this.removeStar()
+      } else {
+        this.addStar()
+      }
+    }
   },
   onLoad(opt) {
     this.siteKey = opt.site;
     this.id = opt.id;
     this.getDetail(opt.site, opt.id);
+    this.checkStar()
   },
 };
 </script>
@@ -180,9 +218,31 @@ export default {
     left: 0;
     width: 100%;
     z-index: 0;
+    filter: blur(3px);
     img {
       width: 100%;
       height: auto;
+    }
+  }
+  .boxImg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    .boxImgWrapper{
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 55vh;
+      img{
+        width: auto;
+        height: 40vh;
+        margin: 0 auto;
+        box-shadow: 0px 0px 1px 6px #fefefe;
+      }
     }
   }
   .box-info {
@@ -194,6 +254,15 @@ export default {
     position: absolute;
     margin-top: 50vh;
     z-index: 1;
+    .star-btn {
+      position: absolute;
+      top: -60rpx;
+      right: 120px;
+      padding: 20rpx;
+      border-radius: 50%;
+      background-color: #FFFFFF;
+      border: 1px solid #f8f8f8;
+    }
     .play-btn {
       position: absolute;
       top: -80rpx;

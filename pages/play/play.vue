@@ -4,14 +4,35 @@
       <video class="player" :autoplay="true" :src="url"></video>
     </view>
     <view class="icon-box">
+      <u-icon name="share" size="60" color="#1e88e5" style="margin-right: 30rpx"></u-icon>
       <u-icon v-if="!starShow" name="star" size="60" @click="addStar()"></u-icon>
-      <u-icon v-if="starShow" name="star-fill" size="60" @click="removeStar()"></u-icon>
-      <u-icon name="share" size="60" style="margin-left: 20rpx"></u-icon>
+      <u-icon v-if="starShow" name="star-fill" color="#ff4445" size="60" @click="removeStar()"></u-icon>
+      <u-icon name="play-circle" size="70" color="#6dd143" @click="selectPlay()" style="margin-left: 30rpx"></u-icon>
     </view>
-    <view class="btn-box">
-      <u-button class="playBtn" plain :ripple="true" @click="selectPlay"
-        >选集播放</u-button
-      >
+    <view class="box-info">
+      <view class="name-box">
+        <text class="name">{{ detail.name }}</text>
+      </view>
+      <view class="info-box">
+        <text>{{ detail.area }}</text>
+        <text class="gap">|</text>
+        <text>{{ detail.lang }}</text>
+        <text class="gap">|</text>
+        <text>{{ detail.type }}</text>
+        <text class="gap">|</text>
+        <text>{{ detail.year }}</text>
+        <text class="gap">|</text>
+        <text>{{ detail.note }}</text>
+      </view>
+      <view class="info-box">
+        <text>导演: {{ detail.director }}</text>
+      </view>
+      <view class="info-box">
+        <text>演员: {{ detail.actor }}</text>
+      </view>
+      <view class="info-box">
+        <text>简介: {{ detail.des }}</text>
+      </view>
     </view>
     <u-select
       v-model="playShow"
@@ -44,7 +65,6 @@ export default {
       this.playShow = !this.playShow;
     },
     playConfirm(e) {
-      console.log(e)
       const d = e[0];
       this.url = d.value
       uni.setNavigationBarTitle({ title: d.label });
@@ -70,12 +90,10 @@ export default {
     },
     async checkStar () {
       const res = await db.get('star', `${this.siteKey}-${this.id}`)
-      console.log(res, 'check star')
       this.starShow = res.flag
     },
     async removeStar () {
       const res = await db.remove('star', `${this.siteKey}-${this.id}`)
-      console.log(res, 'remove star')
       if (res.flag) {
         this.$refs.uToast.show({ title: '移除收藏成功', type: 'success', duration: '2300' })
       } else {
@@ -119,14 +137,22 @@ export default {
     display: flex;
     justify-content: flex-end;
   }
-  .btn-box {
-    position: absolute;
-    bottom: 20px;
-    left: 0;
-    width: 100%;
-    .playBtn {
-      width: 80%;
-      margin: 0 auto;
+  .box-info {
+    padding: 0 10% 10px;
+    .name-box {
+      width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      .name {
+        font-size: 40rpx;
+      }
+    }
+    .info-box {
+      margin-top: 20rpx;
+      .gap {
+        margin: 0 10rpx;
+      }
     }
   }
 }

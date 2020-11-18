@@ -5013,58 +5013,64 @@ var render = function() {
         [
           _c(
             "v-uni-view",
+            { staticClass: _vm._$g(11, "sc"), attrs: { _i: 11 } },
+            [_c("img", { attrs: { src: _vm._$g(12, "a-src"), _i: 12 } })],
+            1
+          )
+        ],
+        1
+      ),
+      _c(
+        "v-uni-view",
+        { staticClass: _vm._$g(13, "sc"), attrs: { _i: 13 } },
+        [
+          _c(
+            "v-uni-view",
             {
-              staticClass: _vm._$g(11, "sc"),
-              attrs: { _i: 11 },
+              staticClass: _vm._$g(14, "sc"),
+              attrs: { _i: 14 },
               on: {
                 click: function($event) {
                   return _vm.$handleViewEvent($event)
                 }
               }
             },
-            [_c("u-icon", { attrs: { _i: 12 } })],
+            [
+              _vm._$g(15, "i") ? _c("u-icon", { attrs: { _i: 15 } }) : _vm._e(),
+              _vm._$g(16, "i") ? _c("u-icon", { attrs: { _i: 16 } }) : _vm._e()
+            ],
             1
           ),
           _c(
             "v-uni-view",
-            { staticClass: _vm._$g(13, "sc"), attrs: { _i: 13 } },
+            {
+              staticClass: _vm._$g(17, "sc"),
+              attrs: { _i: 17 },
+              on: {
+                click: function($event) {
+                  return _vm.$handleViewEvent($event)
+                }
+              }
+            },
+            [_c("u-icon", { attrs: { _i: 18 } })],
+            1
+          ),
+          _c(
+            "v-uni-view",
+            { staticClass: _vm._$g(19, "sc"), attrs: { _i: 19 } },
             [
               _c(
                 "v-uni-text",
-                { staticClass: _vm._$g(14, "sc"), attrs: { _i: 14 } },
-                [_vm._v(_vm._$g(14, "t0-0"))]
+                { staticClass: _vm._$g(20, "sc"), attrs: { _i: 20 } },
+                [_vm._v(_vm._$g(20, "t0-0"))]
               )
             ],
             1
           ),
           _c(
             "v-uni-view",
-            { staticClass: _vm._$g(15, "sc"), attrs: { _i: 15 } },
+            { staticClass: _vm._$g(21, "sc"), attrs: { _i: 21 } },
             [
-              _c("v-uni-text", { attrs: { _i: 16 } }, [
-                _vm._v(_vm._$g(16, "t0-0"))
-              ]),
-              _c(
-                "v-uni-text",
-                { staticClass: _vm._$g(17, "sc"), attrs: { _i: 17 } },
-                [_vm._v("|")]
-              ),
-              _c("v-uni-text", { attrs: { _i: 18 } }, [
-                _vm._v(_vm._$g(18, "t0-0"))
-              ]),
-              _c(
-                "v-uni-text",
-                { staticClass: _vm._$g(19, "sc"), attrs: { _i: 19 } },
-                [_vm._v("|")]
-              ),
-              _c("v-uni-text", { attrs: { _i: 20 } }, [
-                _vm._v(_vm._$g(20, "t0-0"))
-              ]),
-              _c(
-                "v-uni-text",
-                { staticClass: _vm._$g(21, "sc"), attrs: { _i: 21 } },
-                [_vm._v("|")]
-              ),
               _c("v-uni-text", { attrs: { _i: 22 } }, [
                 _vm._v(_vm._$g(22, "t0-0"))
               ]),
@@ -5075,36 +5081,60 @@ var render = function() {
               ),
               _c("v-uni-text", { attrs: { _i: 24 } }, [
                 _vm._v(_vm._$g(24, "t0-0"))
-              ])
-            ],
-            1
-          ),
-          _c(
-            "v-uni-view",
-            { staticClass: _vm._$g(25, "sc"), attrs: { _i: 25 } },
-            [
+              ]),
+              _c(
+                "v-uni-text",
+                { staticClass: _vm._$g(25, "sc"), attrs: { _i: 25 } },
+                [_vm._v("|")]
+              ),
               _c("v-uni-text", { attrs: { _i: 26 } }, [
-                _vm._v("导演: " + _vm._$g(26, "t0-0"))
-              ])
-            ],
-            1
-          ),
-          _c(
-            "v-uni-view",
-            { staticClass: _vm._$g(27, "sc"), attrs: { _i: 27 } },
-            [
+                _vm._v(_vm._$g(26, "t0-0"))
+              ]),
+              _c(
+                "v-uni-text",
+                { staticClass: _vm._$g(27, "sc"), attrs: { _i: 27 } },
+                [_vm._v("|")]
+              ),
               _c("v-uni-text", { attrs: { _i: 28 } }, [
-                _vm._v("演员: " + _vm._$g(28, "t0-0"))
+                _vm._v(_vm._$g(28, "t0-0"))
+              ]),
+              _c(
+                "v-uni-text",
+                { staticClass: _vm._$g(29, "sc"), attrs: { _i: 29 } },
+                [_vm._v("|")]
+              ),
+              _c("v-uni-text", { attrs: { _i: 30 } }, [
+                _vm._v(_vm._$g(30, "t0-0"))
               ])
             ],
             1
           ),
           _c(
             "v-uni-view",
-            { staticClass: _vm._$g(29, "sc"), attrs: { _i: 29 } },
+            { staticClass: _vm._$g(31, "sc"), attrs: { _i: 31 } },
             [
-              _c("v-uni-text", { attrs: { _i: 30 } }, [
-                _vm._v("简介: " + _vm._$g(30, "t0-0"))
+              _c("v-uni-text", { attrs: { _i: 32 } }, [
+                _vm._v("导演: " + _vm._$g(32, "t0-0"))
+              ])
+            ],
+            1
+          ),
+          _c(
+            "v-uni-view",
+            { staticClass: _vm._$g(33, "sc"), attrs: { _i: 33 } },
+            [
+              _c("v-uni-text", { attrs: { _i: 34 } }, [
+                _vm._v("演员: " + _vm._$g(34, "t0-0"))
+              ])
+            ],
+            1
+          ),
+          _c(
+            "v-uni-view",
+            { staticClass: _vm._$g(35, "sc"), attrs: { _i: 35 } },
+            [
+              _c("v-uni-text", { attrs: { _i: 36 } }, [
+                _vm._v("简介: " + _vm._$g(36, "t0-0"))
               ])
             ],
             1
@@ -5114,17 +5144,17 @@ var render = function() {
       ),
       _c(
         "v-uni-view",
-        { attrs: { _i: 31 } },
+        { attrs: { _i: 37 } },
         [
           _c("u-select", {
-            attrs: { _i: 32 },
+            attrs: { _i: 38 },
             on: {
               confirm: function($event) {
                 return _vm.$handleViewEvent($event)
               }
             },
             model: {
-              value: _vm._$g(32, "v-model"),
+              value: _vm._$g(38, "v-model"),
               callback: function() {},
               expression: "playShow"
             }
@@ -5132,7 +5162,7 @@ var render = function() {
         ],
         1
       ),
-      _c("u-toast", { ref: "uToast", attrs: { _i: 33 } })
+      _c("u-toast", { ref: "uToast", attrs: { _i: 39 } })
     ],
     1
   )
@@ -5225,7 +5255,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../software/HBuilderX/plugins/uniapp-cli/node_modules/css-loader/dist/runtime/api.js */ 16);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".detail .status_bar[data-v-1262b4f6] {\n  height: var(--status-bar-height);\n  width: 100%;\n}\n.detail .header[data-v-1262b4f6] {\n  position: absolute;\n  top: var(--status-bar-height);\n  left: 0;\n  padding: 0 20px;\n  height: 20px;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: flex;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n          align-items: center;\n  -webkit-box-pack: justify;\n  -webkit-justify-content: space-between;\n          justify-content: space-between;\n  z-index: 2;\n  width: 100%;\n  margin-top: 10px;\n}\n.detail .header .header-icon[data-v-1262b4f6] {\n  width: 30px;\n  height: 30px;\n  background-color: rgba(255, 255, 255, 0.7);\n  text-align: center;\n  line-height: 30px;\n  -webkit-border-radius: 50%;\n          border-radius: 50%;\n}\n.detail .bgImg[data-v-1262b4f6] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  z-index: 0;\n}\n.detail .bgImg img[data-v-1262b4f6] {\n  width: 100%;\n  height: auto;\n}\n.detail .box-info[data-v-1262b4f6] {\n  width: 100%;\n  height: auto;\n  padding: 40px 30px;\n  -webkit-border-radius: 30px;\n          border-radius: 30px;\n  background-color: #FFFFFF;\n  position: absolute;\n  margin-top: 50vh;\n  z-index: 1;\n}\n.detail .box-info .play-btn[data-v-1262b4f6] {\n  position: absolute;\n  top: -80rpx;\n  right: 50px;\n  padding: 20rpx;\n  -webkit-border-radius: 50%;\n          border-radius: 50%;\n  background-color: #FFFFFF;\n  border: 1px solid #f8f8f8;\n}\n.detail .box-info .name-box[data-v-1262b4f6] {\n  width: 100%;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.detail .box-info .name-box .name[data-v-1262b4f6] {\n  font-size: 40rpx;\n}\n.detail .box-info .info-box[data-v-1262b4f6] {\n  margin-top: 20rpx;\n}\n.detail .box-info .info-box .gap[data-v-1262b4f6] {\n  margin: 0 10rpx;\n}\n", ""]);
+exports.push([module.i, ".detail .status_bar[data-v-1262b4f6] {\n  height: var(--status-bar-height);\n  width: 100%;\n}\n.detail .header[data-v-1262b4f6] {\n  position: absolute;\n  top: var(--status-bar-height);\n  left: 0;\n  padding: 0 20px;\n  height: 20px;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: flex;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n          align-items: center;\n  -webkit-box-pack: justify;\n  -webkit-justify-content: space-between;\n          justify-content: space-between;\n  z-index: 2;\n  width: 100%;\n  margin-top: 10px;\n}\n.detail .header .header-icon[data-v-1262b4f6] {\n  width: 30px;\n  height: 30px;\n  background-color: rgba(255, 255, 255, 0.7);\n  text-align: center;\n  line-height: 30px;\n  -webkit-border-radius: 50%;\n          border-radius: 50%;\n}\n.detail .bgImg[data-v-1262b4f6] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  z-index: 0;\n  -webkit-filter: blur(3px);\n          filter: blur(3px);\n}\n.detail .bgImg img[data-v-1262b4f6] {\n  width: 100%;\n  height: auto;\n}\n.detail .boxImg[data-v-1262b4f6] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  z-index: 1;\n}\n.detail .boxImg .boxImgWrapper[data-v-1262b4f6] {\n  width: 100%;\n  height: 100%;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: flex;\n  -webkit-box-pack: center;\n  -webkit-justify-content: center;\n          justify-content: center;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n          align-items: center;\n  height: 55vh;\n}\n.detail .boxImg .boxImgWrapper img[data-v-1262b4f6] {\n  width: auto;\n  height: 40vh;\n  margin: 0 auto;\n  -webkit-box-shadow: 0px 0px 1px 6px #fefefe;\n          box-shadow: 0px 0px 1px 6px #fefefe;\n}\n.detail .box-info[data-v-1262b4f6] {\n  width: 100%;\n  height: auto;\n  padding: 40px 30px;\n  -webkit-border-radius: 30px;\n          border-radius: 30px;\n  background-color: #FFFFFF;\n  position: absolute;\n  margin-top: 50vh;\n  z-index: 1;\n}\n.detail .box-info .star-btn[data-v-1262b4f6] {\n  position: absolute;\n  top: -60rpx;\n  right: 120px;\n  padding: 20rpx;\n  -webkit-border-radius: 50%;\n          border-radius: 50%;\n  background-color: #FFFFFF;\n  border: 1px solid #f8f8f8;\n}\n.detail .box-info .play-btn[data-v-1262b4f6] {\n  position: absolute;\n  top: -80rpx;\n  right: 50px;\n  padding: 20rpx;\n  -webkit-border-radius: 50%;\n          border-radius: 50%;\n  background-color: #FFFFFF;\n  border: 1px solid #f8f8f8;\n}\n.detail .box-info .name-box[data-v-1262b4f6] {\n  width: 100%;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.detail .box-info .name-box .name[data-v-1262b4f6] {\n  font-size: 40rpx;\n}\n.detail .box-info .info-box[data-v-1262b4f6] {\n  margin-top: 20rpx;\n}\n.detail .box-info .info-box .gap[data-v-1262b4f6] {\n  margin: 0 10rpx;\n}\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -5307,7 +5337,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components = {
   uIcon: __webpack_require__(/*! uview-ui/components/u-icon/u-icon.vue */ 8).default,
-  uButton: __webpack_require__(/*! uview-ui/components/u-button/u-button.vue */ 25).default,
   uSelect: __webpack_require__(/*! uview-ui/components/u-select/u-select.vue */ 81).default,
   uToast: __webpack_require__(/*! uview-ui/components/u-toast/u-toast.vue */ 163).default
 }
@@ -5334,16 +5363,10 @@ var render = function() {
         "v-uni-view",
         { staticClass: _vm._$g(3, "sc"), attrs: { _i: 3 } },
         [
-          _vm._$g(4, "i")
-            ? _c("u-icon", {
-                attrs: { _i: 4 },
-                on: {
-                  click: function($event) {
-                    return _vm.$handleViewEvent($event)
-                  }
-                }
-              })
-            : _vm._e(),
+          _c("u-icon", {
+            staticStyle: { "margin-right": "30rpx" },
+            attrs: { _i: 4 }
+          }),
           _vm._$g(5, "i")
             ? _c("u-icon", {
                 attrs: { _i: 5 },
@@ -5354,47 +5377,133 @@ var render = function() {
                 }
               })
             : _vm._e(),
+          _vm._$g(6, "i")
+            ? _c("u-icon", {
+                attrs: { _i: 6 },
+                on: {
+                  click: function($event) {
+                    return _vm.$handleViewEvent($event)
+                  }
+                }
+              })
+            : _vm._e(),
           _c("u-icon", {
-            staticStyle: { "margin-left": "20rpx" },
-            attrs: { _i: 6 }
+            staticStyle: { "margin-left": "30rpx" },
+            attrs: { _i: 7 },
+            on: {
+              click: function($event) {
+                return _vm.$handleViewEvent($event)
+              }
+            }
           })
         ],
         1
       ),
       _c(
         "v-uni-view",
-        { staticClass: _vm._$g(7, "sc"), attrs: { _i: 7 } },
+        { staticClass: _vm._$g(8, "sc"), attrs: { _i: 8 } },
         [
           _c(
-            "u-button",
-            {
-              staticClass: _vm._$g(8, "sc"),
-              attrs: { _i: 8 },
-              on: {
-                click: function($event) {
-                  return _vm.$handleViewEvent($event)
-                }
-              }
-            },
-            [_vm._v("选集播放")]
+            "v-uni-view",
+            { staticClass: _vm._$g(9, "sc"), attrs: { _i: 9 } },
+            [
+              _c(
+                "v-uni-text",
+                { staticClass: _vm._$g(10, "sc"), attrs: { _i: 10 } },
+                [_vm._v(_vm._$g(10, "t0-0"))]
+              )
+            ],
+            1
+          ),
+          _c(
+            "v-uni-view",
+            { staticClass: _vm._$g(11, "sc"), attrs: { _i: 11 } },
+            [
+              _c("v-uni-text", { attrs: { _i: 12 } }, [
+                _vm._v(_vm._$g(12, "t0-0"))
+              ]),
+              _c(
+                "v-uni-text",
+                { staticClass: _vm._$g(13, "sc"), attrs: { _i: 13 } },
+                [_vm._v("|")]
+              ),
+              _c("v-uni-text", { attrs: { _i: 14 } }, [
+                _vm._v(_vm._$g(14, "t0-0"))
+              ]),
+              _c(
+                "v-uni-text",
+                { staticClass: _vm._$g(15, "sc"), attrs: { _i: 15 } },
+                [_vm._v("|")]
+              ),
+              _c("v-uni-text", { attrs: { _i: 16 } }, [
+                _vm._v(_vm._$g(16, "t0-0"))
+              ]),
+              _c(
+                "v-uni-text",
+                { staticClass: _vm._$g(17, "sc"), attrs: { _i: 17 } },
+                [_vm._v("|")]
+              ),
+              _c("v-uni-text", { attrs: { _i: 18 } }, [
+                _vm._v(_vm._$g(18, "t0-0"))
+              ]),
+              _c(
+                "v-uni-text",
+                { staticClass: _vm._$g(19, "sc"), attrs: { _i: 19 } },
+                [_vm._v("|")]
+              ),
+              _c("v-uni-text", { attrs: { _i: 20 } }, [
+                _vm._v(_vm._$g(20, "t0-0"))
+              ])
+            ],
+            1
+          ),
+          _c(
+            "v-uni-view",
+            { staticClass: _vm._$g(21, "sc"), attrs: { _i: 21 } },
+            [
+              _c("v-uni-text", { attrs: { _i: 22 } }, [
+                _vm._v("导演: " + _vm._$g(22, "t0-0"))
+              ])
+            ],
+            1
+          ),
+          _c(
+            "v-uni-view",
+            { staticClass: _vm._$g(23, "sc"), attrs: { _i: 23 } },
+            [
+              _c("v-uni-text", { attrs: { _i: 24 } }, [
+                _vm._v("演员: " + _vm._$g(24, "t0-0"))
+              ])
+            ],
+            1
+          ),
+          _c(
+            "v-uni-view",
+            { staticClass: _vm._$g(25, "sc"), attrs: { _i: 25 } },
+            [
+              _c("v-uni-text", { attrs: { _i: 26 } }, [
+                _vm._v("简介: " + _vm._$g(26, "t0-0"))
+              ])
+            ],
+            1
           )
         ],
         1
       ),
       _c("u-select", {
-        attrs: { _i: 9 },
+        attrs: { _i: 27 },
         on: {
           confirm: function($event) {
             return _vm.$handleViewEvent($event)
           }
         },
         model: {
-          value: _vm._$g(9, "v-model"),
+          value: _vm._$g(27, "v-model"),
           callback: function() {},
           expression: "playShow"
         }
       }),
-      _c("u-toast", { ref: "uToast", attrs: { _i: 10 } })
+      _c("u-toast", { ref: "uToast", attrs: { _i: 28 } })
     ],
     1
   )
@@ -5487,7 +5596,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../software/HBuilderX/plugins/uniapp-cli/node_modules/css-loader/dist/runtime/api.js */ 16);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".play .play-box .player[data-v-641d89d6] {\n  width: 100vw;\n}\n.play .icon-box[data-v-641d89d6] {\n  padding: 20px 10%;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: flex;\n  -webkit-box-pack: end;\n  -webkit-justify-content: flex-end;\n          justify-content: flex-end;\n}\n.play .btn-box[data-v-641d89d6] {\n  position: absolute;\n  bottom: 20px;\n  left: 0;\n  width: 100%;\n}\n.play .btn-box .playBtn[data-v-641d89d6] {\n  width: 80%;\n  margin: 0 auto;\n}\n", ""]);
+exports.push([module.i, ".play .play-box .player[data-v-641d89d6] {\n  width: 100vw;\n}\n.play .icon-box[data-v-641d89d6] {\n  padding: 20px 10%;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: flex;\n  -webkit-box-pack: end;\n  -webkit-justify-content: flex-end;\n          justify-content: flex-end;\n}\n.play .box-info[data-v-641d89d6] {\n  padding: 0 10% 10px;\n}\n.play .box-info .name-box[data-v-641d89d6] {\n  width: 100%;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.play .box-info .name-box .name[data-v-641d89d6] {\n  font-size: 40rpx;\n}\n.play .box-info .info-box[data-v-641d89d6] {\n  margin-top: 20rpx;\n}\n.play .box-info .info-box .gap[data-v-641d89d6] {\n  margin: 0 10rpx;\n}\n", ""]);
 // Exports
 module.exports = exports;
 
