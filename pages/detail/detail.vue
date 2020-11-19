@@ -116,7 +116,7 @@ export default {
       if (this.playList.length <= 1) {
         const d = this.playList[0];
         const url = `/pages/play/play?site=${d.extra.site}&id=${d.extra.id}&name=${d.label}&url=${d.value}`;
-        await this.addHistory()
+        await this.addHistory(d.label, d.value)
         this.$u.route({ url: url });
       } else {
         this.playShow = !this.playShow;
@@ -125,15 +125,17 @@ export default {
     async playConfirm(e) {
       const d = e[0];
       const url = `/pages/play/play?site=${d.extra.site}&id=${d.extra.id}&name=${d.label}&url=${d.value}`;
-      await this.addHistory()
+      await this.addHistory(d.label, d.value)
       this.$u.route({ url: url });
     },
-    async addHistory () {
-      let s = {...this.detail}
-      s.key = `${this.siteKey}-${this.id}`
+    async addHistory (label, url) {
+      let h = {...this.detail}
+      h.key = `${this.siteKey}-${this.id}`
       const res = await db.get('history', `${this.siteKey}-${this.id}`)
       if (!res.flag) {
-        await db.add('history', s)
+        h.label = label
+        h.url = url
+        await db.add('history', h)
       }
     },
     async getDetail(key, id) {

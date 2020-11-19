@@ -7,7 +7,7 @@
         :title="i.name"
         :value="i.type"
         :arrow="false"
-        @click="openDetail(i)"
+        @click="playVideo(i)"
       ></u-cell-item>
     </u-cell-group>
   </view>
@@ -22,10 +22,10 @@ export default {
     };
   },
   methods: {
-    openDetail(item) {
+    playVideo(item) {
       const site = item.key.split("-")[0];
       const id = item.key.split("-")[1];
-      const url = `/pages/detail/detail?site=${site}&id=${id}`;
+      const url = `/pages/play/play?site=${site}&id=${id}&name=${item.label}&url=${item.url}`;
       this.$u.route({ url: url });
     },
     async getAllHistory() {
