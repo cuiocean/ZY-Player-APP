@@ -68,6 +68,19 @@ const db = {
       return { flag: false, data: null, msg: {...err} }
     }
   },
+  async update (db, item) {
+    const res = await this.get(db, item.key)
+    if (res && res.flag) {
+      try {
+        uni.setStorageSync(`${db}-${item.key}`, item)
+        return { flag: true, data: {...item}, msg: '保存成功' }
+      } catch(err) {
+        return err
+      }
+    } else {
+      return res
+    }
+  },
   // 查询获取 db 所有 item
   async getAll (db) {
     const res = await this.getAllDB(db)

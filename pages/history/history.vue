@@ -5,6 +5,7 @@
         v-for="(i, j) in historyList"
         :key="j"
         :title="i.name"
+		:label="getProgress(i)"
         :value="i.type"
         :arrow="false"
         @click="playVideo(i)"
@@ -22,9 +23,17 @@ export default {
     };
   },
   methods: {
+	  getProgress (item) {
+      if(item.currentTime && item.duration) {
+        return (100*item.currentTime/item.duration).toFixed(0) + "%"
+      } else {
+        return ""
+      }
+  	},
     playVideo(item) {
       const site = item.key.split("-")[0];
       const id = item.key.split("-")[1];
+      // item.label为播放器上方的title，电影的话就是电影名，电视剧则为“第n集”
       const url = `/pages/play/play?site=${site}&id=${id}&name=${item.label}&url=${item.url}`;
       this.$u.route({ url: url });
     },

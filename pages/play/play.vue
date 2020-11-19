@@ -1,7 +1,7 @@
 <template>
   <view class="play">
     <view class="play-box">
-      <video class="player" :autoplay="true" :src="url"></video>
+      <video class="player" :autoplay="true" :src="url" @timeupdate="videoTimeUpdateEvent"></video>
     </view>
     <view class="icon-box">
       <u-icon name="share" size="60" color="#1e88e5" style="margin-right: 30rpx"></u-icon>
@@ -57,10 +57,28 @@ export default {
       playShow: false,
       playList: [],
       detail: {},
-      starShow: true
+      starShow: true,
+      videoUpdateCounter: 0
     };
   },
   methods: {
+    async videoTimeUpdateEvent (e) {
+      // 播放进度变化时触发timeupdate，event.detail = {currentTime, duration} 。触发频率 250ms 一次
+      this.videoUpdateCounter += 1
+      if (this.videoUpdateCounter % 40 === 0) {
+        // 每10秒更新一下历史记录的时间进度
+        this.videoUpdateCounter = 0
+        await this.updateHistory(e.detail)
+      }
+    },
+    async updateHistory (detail) {
+      const res = await db.get('history', `${this.siteKey}-${this.id}`)
+      if (res.flag) {
+        res.data.currentTime = detail.currentTime
+        res.data.duration = detail.duration
+        await db.update('history', res.data)
+      }
+    },
     selectPlay() {
       this.playShow = !this.playShow;
     },
