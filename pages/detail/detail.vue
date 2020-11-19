@@ -112,19 +112,29 @@ export default {
         }
       }
     },
-    playEvent() {
+    async playEvent() {
       if (this.playList.length <= 1) {
         const d = this.playList[0];
         const url = `/pages/play/play?site=${d.extra.site}&id=${d.extra.id}&name=${d.label}&url=${d.value}`;
+        await this.addHistory()
         this.$u.route({ url: url });
       } else {
         this.playShow = !this.playShow;
       }
     },
-    playConfirm(e) {
+    async playConfirm(e) {
       const d = e[0];
       const url = `/pages/play/play?site=${d.extra.site}&id=${d.extra.id}&name=${d.label}&url=${d.value}`;
+      await this.addHistory()
       this.$u.route({ url: url });
+    },
+    async addHistory () {
+      let s = {...this.detail}
+      s.key = `${this.siteKey}-${this.id}`
+      const res = await db.get('history', `${this.siteKey}-${this.id}`)
+      if (!res.flag) {
+        await db.add('history', s)
+      }
     },
     async getDetail(key, id) {
       const res = await http.detail(key, id);

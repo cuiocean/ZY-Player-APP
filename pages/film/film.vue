@@ -213,7 +213,6 @@ export default {
       this.recordcount = res.recordcount
     },
     async getClass(key) {
-      console.log('getClass')
       this.typeList = [{ name: '最新', tid: 0 }]
       this.type = { name: '最新', tid: 0 }
       this.typeDefault = [0]
