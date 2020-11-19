@@ -34,7 +34,7 @@ export default {
       const site = item.key.split("-")[0];
       const id = item.key.split("-")[1];
       // item.label为播放器上方的title，电影的话就是电影名，电视剧则为“第n集”
-      const url = `/pages/play/play?site=${site}&id=${id}&name=${item.label}&url=${item.url}`;
+      const url = `/pages/play/play?site=${site}&id=${id}&name=${item.label}&url=${item.url}&initialtime=${item.currentTime}`;
       this.$u.route({ url: url });
     },
     async getAllHistory() {

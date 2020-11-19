@@ -1,7 +1,7 @@
 <template>
   <view class="play">
     <view class="play-box">
-      <video class="player" :autoplay="true" :src="url" @timeupdate="videoTimeUpdateEvent"></video>
+      <video class="player" :autoplay="true" :src="url" :initial-time="initialtime" @timeupdate="videoTimeUpdateEvent"></video>
     </view>
     <view class="icon-box">
       <u-icon name="share" size="60" color="#1e88e5" style="margin-right: 30rpx"></u-icon>
@@ -54,6 +54,7 @@ export default {
       id: "",
       name: "",
       url: "",
+      initialtime: 0,
       playShow: false,
       playList: [],
       detail: {},
@@ -157,6 +158,7 @@ export default {
     this.id = opt.id;
     this.name = opt.name;
     this.url = opt.url;
+    this.initialtime = opt.initialtime;
     this.getDetail(this.siteKey, this.id)
     this.checkStar()
     uni.setNavigationBarTitle({ title: opt.name });
