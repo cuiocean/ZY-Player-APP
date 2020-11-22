@@ -118,6 +118,15 @@ const http = {
     } catch (err) {
       return err
     }
+  },
+  // 通过 json url 导入视频源
+  async site (jsonUrl) {
+    try {
+      const res = await ajax.get(jsonUrl)
+      return res.data
+    } catch (err) {
+      return err
+    }
   }
 }
 

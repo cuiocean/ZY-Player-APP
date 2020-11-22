@@ -14,7 +14,7 @@
       ></u-cell-item>
 			<u-cell-item
         title="视频源管理"
-        value="TODO（待完善）"
+        value="管理视频源数据"
         :arrow="false"
         @click="siteEdite()"
       ></u-cell-item>
