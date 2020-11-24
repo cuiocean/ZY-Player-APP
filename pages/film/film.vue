@@ -73,7 +73,6 @@
       :list="siteList"
       value-name="key"
       label-name="name"
-      :default-value="siteDefault"
       @confirm="siteConfirm"
     ></u-select>
     <u-select
@@ -81,7 +80,6 @@
       :list="typeList"
       value-name="tid"
       label-name="name"
-      :default-value="typeDefault"
       @confirm="typeConfirm"
     ></u-select>
     <u-top-tips ref="uTips"></u-top-tips>
@@ -103,18 +101,17 @@ export default {
       search: "",
       site: {},
       siteShow: false,
-      siteDefault: [],
       siteList: [],
       type: {},
       typeShow: false,
-      typeDefault: [],
       typeList: [],
       flowList: [],
       loadStatus: "loadmore",
       scrollTop: 0,
       pageCount: 0,
       recordcount: 0,
-      mask: false
+      mask: false,
+      r18KeyWords: ['伦理', '论理', '倫理', '福利', '激情', '理论', '写真', '情色', '美女', '街拍', '赤足', '性感', '里番']
     };
   },
   methods: {
@@ -148,7 +145,6 @@ export default {
     async openSiteSelect() {
       this.siteShow = true;
       const site = await db.get("site", this.site.key);
-      this.siteDefault = [site.data.id - 1];
     },
     async siteConfirm(e) {
       this.mask = true
@@ -156,7 +152,6 @@ export default {
       this.$refs.uWaterfall.clear();
       const site = await db.get("site", e[0].value);
       this.site = site.data;
-      this.siteDefault = [site.id];
       await this.getPage()
       await this.getClass(this.site.key)
       await this.addData(this.site.key, this.pageCount)
@@ -175,7 +170,6 @@ export default {
       this.mask = true
       this.flowList = []
       this.$refs.uWaterfall.clear();
-      this.typeDefault = [this.type.tid];
       await this.getPage(this.type.tid)
       await this.addData(this.site.key, this.pageCount, this.type.tid)
       this.pageCount--
@@ -201,7 +195,6 @@ export default {
         return false
       }
       this.site = this.siteList[0]
-      this.siteDefault = [this.site.id];
       await this.getPage()
       await this.getClass(this.site.key)
       await this.addData(this.site.key, this.pageCount)
@@ -216,7 +209,6 @@ export default {
     async getClass(key) {
       this.typeList = [{ name: '最新', tid: 0 }]
       this.type = { name: '最新', tid: 0 }
-      this.typeDefault = [0]
       http.class(key).then(res => {
         // 屏蔽主分类
         const classToHide = ['电影', '电影片', '电视剧', '连续剧', '综艺', '动漫']
@@ -228,10 +220,24 @@ export default {
       })
     },
     async addData(key, page, t) {
+      console.log(key, page, t, 'lalala')
       const res = await http.list(key, page, t);
+      const config = await db.get('setting', 'config')
       for (let i = 0; i < res.length; i++) {
         let item = res[i];
-        this.flowList.push(item);
+        if (config.data.R18) {
+          const j = this.r18KeyWords.some(v => item.name.includes(v))
+          const k = this.r18KeyWords.some(v => item.type.includes(v))
+          if (j !== true && k !== true) {
+            this.flowList.push(item);
+          }
+        } else {
+          this.flowList.push(item);
+        }
+      }
+      if (this.flowList.length <= 6 && page) {
+        this.pageCount--;
+        this.addData(key, this.pageCount, t);
       }
     }
   },
