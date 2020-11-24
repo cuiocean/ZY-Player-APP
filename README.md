@@ -34,6 +34,10 @@
 
 - 🍓 [Github -- 官方下载](https://github.com/Hunlongyu/ZY-Player-APP/releases)
 
+- 🍷 [Android](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-aliyun-fusdvvo5hcqnfd09ae/91e864a0-2e06-11eb-bd01-97bc1429a9ff.apk)
+
+- 🥤 [IOS](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-aliyun-fusdvvo5hcqnfd09ae/9298a1d0-2e06-11eb-899d-733ae62bed2f.ipa)
+
 **IOS 手机只能越狱安装**
 
 ### 🎨 截图
