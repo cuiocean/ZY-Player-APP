@@ -42,12 +42,6 @@
         :arrow="false"
         @click="itemClickEvent(i)"
       ></u-cell-item>
-      <u-cell-item
-        title="关于"
-        value=""
-        :arrow="false"
-        @click="itemClickEvent(i)"
-      ></u-cell-item>
     </u-cell-group>
     <view class="tips">
       所有资源来自网上, 该软件不参与任何制作, 上传, 储存等内容,
