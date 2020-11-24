@@ -38,7 +38,7 @@
 
 - 🥤 [IOS](https://vkceyugu.cdn.bspapp.com/VKCEYUGU-aliyun-fusdvvo5hcqnfd09ae/9298a1d0-2e06-11eb-899d-733ae62bed2f.ipa)
 
-**IOS 手机只能越狱安装**
+**IOS 手机只能越狱安装, [IOS 自签教程, 适用于非越狱手机](https://www.i4.cn/news_detail_38195.html)**
 
 ### 🎨 截图
 
