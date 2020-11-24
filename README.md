@@ -36,17 +36,14 @@
 
 ### 🎨 截图
 
-|                      🥼 首页                                 |                      🧥 详情                     | 
-| :----------------------------------------------------------: | :----------------------------------------------------------: |
-| ![01.jpg](https://i.loli.net/2020/11/24/CBH4P76X8qjpvGI.jpg) | ![02.jpg](https://i.loli.net/2020/11/24/AwQURWJt4x563PS.jpg) |
-|                            👔 播放                            |                            👕 收藏                            |
-| ![04.jpg](https://i.loli.net/2020/11/24/FkzT9M2BI8uqsnU.jpg) | ![03.jpg](https://i.loli.net/2020/11/24/A8XVipTrbkn1Bce.jpg)|
-|                      👖 播放记录                               |                      🩳 视频源管理                       |
-| ![05.jpg](https://i.loli.net/2020/11/24/iVxDXF91ML4sPeg.jpg) | ![06.jpg](https://i.loli.net/2020/11/24/6obDIiCBvZUkdj2.jpg) |
+| 🥼 首页 | 🧥 详情 | 👔 播放 |
+| :---: | :---: | :---: |
+| ![01.jpg](https://i.loli.net/2020/11/24/CBH4P76X8qjpvGI.jpg) | ![02.jpg](https://i.loli.net/2020/11/24/AwQURWJt4x563PS.jpg) | ![04.jpg](https://i.loli.net/2020/11/24/FkzT9M2BI8uqsnU.jpg) |
+| 👕 收藏 | 👖 播放记录 | 🩳 视频源管理 |
+| ![03.jpg](https://i.loli.net/2020/11/24/A8XVipTrbkn1Bce.jpg) | ![05.jpg](https://i.loli.net/2020/11/24/iVxDXF91ML4sPeg.jpg) | ![06.jpg](https://i.loli.net/2020/11/24/6obDIiCBvZUkdj2.jpg) |
 
 ### 🍭 开发者
 
 |          [Hunlongyu](https://github.com/Hunlongyu)           |           [cuiocean](https://github.com/cuiocean)            |
 | :----------------------------------------------------------: | :----------------------------------------------------------: |
 | <img width="120" src="https://avatars2.githubusercontent.com/u/15273630?s=460&u=48cf3299e2a842c0252233d8be42ef4c5d792138&v=4"/> | <img width="120" src="https://avatars0.githubusercontent.com/u/5760235?s=460&u=9d969dd8d83f069ce7ebd60516770c93ac07a330&v=4" /> |
-|     
