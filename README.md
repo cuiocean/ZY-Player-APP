@@ -3,7 +3,7 @@
 </p>
 <p align="center">
 <a href="http://zyplayer.fun/" target="_blank">官网</a>
-<a href="https://github.com/Hunlongyu/ZY-Player-Android/issues" target="_blank">反馈</a>
+<a href="https://github.com/Hunlongyu/ZY-Player-APP/issues" target="_blank">反馈</a>
 </p>
 <p align="center">
 <img src="https://forthebadge.com/images/badges/built-with-love.svg">
@@ -14,13 +14,13 @@
 <img src="https://github.com/aleen42/badges/raw/master/src/javascript_flat_square.svg?sanitize=true">
 </p>
 <p align="center">
-<img alt="GitHub All Releases" src="https://img.shields.io/github/downloads/Hunlongyu/ZY-Player-Android/total?style=for-the-badge">
-<img alt="GitHub release (latest by date including pre-releases)" src="https://img.shields.io/github/v/release/Hunlongyu/ZY-Player-Android?include_prereleases&style=for-the-badge">
-<img alt="GitHub" src="https://img.shields.io/github/license/Hunlongyu/ZY-Player-Android?style=for-the-badge">
+<img alt="GitHub All Releases" src="https://img.shields.io/github/downloads/Hunlongyu/ZY-Player-APP/total?style=for-the-badge">
+<img alt="GitHub release (latest by date including pre-releases)" src="https://img.shields.io/github/v/release/Hunlongyu/ZY-Player-APP?include_prereleases&style=for-the-badge">
+<img alt="GitHub" src="https://img.shields.io/github/license/Hunlongyu/ZY-Player-APP?style=for-the-badge">
 <p>
 
 
-<h1 align="center">ZY Player Android</h1>
+<h1 align="center">ZY Player APP</h1>
 
 ### ✨特性
 
@@ -32,7 +32,7 @@
 
 ### 下载
 
-- 🍓 [Github -- 官方下载](https://github.com/Hunlongyu/ZY-Player-Android/releases)
+- 🍓 [Github -- 官方下载](https://github.com/Hunlongyu/ZY-Player-APP/releases)
 
 **IOS 手机只能越狱安装**
 

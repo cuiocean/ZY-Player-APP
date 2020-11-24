@@ -1,7 +1,7 @@
 {
-    "name" : "ZY Player Android",
+    "name" : "ZY Player",
     "appid" : "__UNI__B85B395",
-    "description" : "ZY Player 安卓版",
+    "description" : "ZY Player 移动端 APP",
     "versionName" : "0.1.2",
     "versionCode" : 102,
     "transformPx" : false,

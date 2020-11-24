@@ -4,7 +4,7 @@
     <view class="logo">
       <img src="static/images/logo.png" alt="" />
     </view>
-    <view class="name"> ZY Player Andriod </view>
+    <view class="name"> ZY Player APP </view>
     <u-cell-group>
 			<u-cell-item
         title="播放记录"
