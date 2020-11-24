@@ -34,6 +34,8 @@
 
 - 🍓 [Github -- 官方下载](https://github.com/Hunlongyu/ZY-Player-Android/releases)
 
+**IOS 手机只能越狱安装**
+
 ### 🎨 截图
 
 | 🥼 首页 | 🧥 详情 | 👔 播放 |
