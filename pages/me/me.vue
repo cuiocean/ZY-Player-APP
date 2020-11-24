@@ -38,7 +38,7 @@
       ></u-cell-item>
       <u-cell-item
         title="版本更新"
-        value="0.1.0"
+        value="0.1.2"
         :arrow="false"
         @click="itemClickEvent(i)"
       ></u-cell-item>
