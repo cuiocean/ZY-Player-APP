@@ -56,6 +56,7 @@
             <view class="box-name">{{ item.name }}</view>
             <view class="box-info">
               <view class="box-class">{{ item.type }}</view>
+			  <view class="box-class">{{ item.note }}</view>
               <view class="box-year">{{ item.year }}</view>
             </view>
           </view>
