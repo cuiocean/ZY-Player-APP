@@ -23,7 +23,7 @@
     "id": 3,
     "key": "apibdzy",
     "name": "百度云资源",
-    "api": "https://api.apibdzy.com/api.php/provide/vod/at/xml",
+    "api": "https://api.apibdzy.com/api.php/provide/vod/?ac=list",
     "download": "",
     "group": "默认",
     "isActive": true,
